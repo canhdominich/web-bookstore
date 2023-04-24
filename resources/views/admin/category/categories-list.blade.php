@@ -171,7 +171,7 @@ Danh sách danh mục
 		  <nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<ul class="nav">
 			  <li class="nav-item">
-				<a class="nav-link" href="index.html">
+				<a class="nav-link" href="/admin/dashboard">
 				  <i class="mdi mdi-home menu-icon"></i>
 				  <span class="menu-title">Trang chủ</span>
 				</a>
@@ -184,8 +184,8 @@ Danh sách danh mục
 				</a>
 				<div class="collapse" id="ui-basic">
 				  <ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="/admin/category">Danh sách các danh mục</a></li>
-					<li class="nav-item"> <a class="nav-link" href="/admin/book">Danh sách các đầu sách</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/admin/category">Danh mục</a></li>
+                	<li class="nav-item"> <a class="nav-link" href="/admin/book">Sách</a></li>
 				  </ul>
 				</div>
 			  </li>
@@ -254,7 +254,7 @@ Danh sách danh mục
 							<tr>
 								<th class="col-sm-1 text-center">#</th>
 								<th class="col-sm-3 text-center">Tên danh mục</th>
-								<th class="col-sm-3 text-center">Ảnh bìa</th>
+								<th class="col-sm-3 text-center">Mô tả danh mục</th>
 								<th class="col-sm-2 text-center">Ngày tạo</th>
 								<th class="col-sm-3 text-center">Hành động</th>
 							</tr>
@@ -265,22 +265,15 @@ Danh sách danh mục
 							<tr>
 								<td class="col-sm-1 text-center">{{$value->id}}</td>
 								<td class="col-sm-3 text-center">{{$value->name}}</td>
-								<td class="col-sm-3 text-center">
-									<img style="width: 100px; height: 200px; border-radius: 0;" src="{{url('images/categories/'.$value->thumbnail)}}" alt=" text-center">
-								</td>
+								<td class="col-sm-3 text-center">{{$value->description}}</td>
 								<td class="col-sm-2 text-center">{{$value->created_at}}</td>
 								<td class="col-sm-3 text-center">
-									<!-- <button data-id="{{$value->id}}" type="button" class="btn btn-primary btn-show">
-										<i class="mdi mdi-eye" style="color: #fff;"></i>
-									</button> -->
-
-									<button data-id="{{$value->id}}" type="button" class="btn btn-warning btn-edit" >
+									<a href="/admin/category/{{$value->id}}" class="btn btn-warning btn-edit">
 										<i class="mdi mdi-table-edit" style="color: #fff;"></i>
-									</button>
-
-									<button data-id="{{$value->id}}" type="button" class="btn btn-danger btn-delete">
+									</a>
+									<a href="#" data-id="{{$value->id}}" type="button" class="btn btn-danger btn-delete">
 										<i class="mdi mdi-delete-forever" style="color: #fff;"></i>
-									</button>
+									</a>
 								</td>
 								<style>
 									button i::before {

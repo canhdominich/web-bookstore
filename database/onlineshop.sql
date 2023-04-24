@@ -40,7 +40,7 @@ CREATE TABLE `books` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (2,'TÔI VẼ - PHƯƠNG PHÁP TỰ HỌC VẼ TRUYỆN TRANH','toi-ve-phuong-phap-tu-hoc-ve-truyen-tranh','8936071672704',2,'“Tôi vẽ với 300 trang sách bao gồm những kỹ năng cơ bản cần có của một họa sĩ truyện tranh, từ tạo hình nhân vật, thiết kế bối cảnh, biểu cảm, các kỹ thuật diễn họa cho đến luật phối cảnh. Đây là một cuốn cẩm nang tuyệt vời dành cho các bạn đang bắt đầu học vẽ truyện tranh. Những kiến thức này có thể không giúp các bạn vẽ đẹp ngay lập tức nhưng sẽ là nền tảng vững chắc giúp bạn hình thành các tiêu chuẩn chuyên nghiệp trong nghề và không mất thời gian tự mò mẫm. Phần minh họa cho các bài học cũng rất hấp dẫn và sáng tạo. Các tác giả đã sử dụng chính nhân vật và trang truyện của mình để làm rõ sự liên quan giữa lý thuyết và thực tế, tính ứng dụng rõ ràng của các kỹ thuật và quy trình sáng tác.','Phan Vũ Linh','/tmp/phpcO2mAn',100000.00,80000.00,100,0,0,1,'2023-04-24 08:02:12','2023-04-24 08:02:12'),(3,'TRONG PHÒNG CHỜ VỚI BÁC SĨ WYNN - TẬP 2','trong-phong-cho-voi-bac-si-wynn-tap-2','9786043925050',2,'Sau khi quyển sách \"Trong phòng chờ với Bác sĩ Wynn\" tập 1 được đón nhận, Bác sĩ Wynn tiếp tục cho ra mắt \"Trong phòng chờ với Bác sĩ Wynn\" tập 2 với nhiều bài viết bổ sung về kiến thức y học thường thức, giúp quý vị độc giả có thêm kiến thức để bảo vệ sức khỏe của bản thân và gia đình. Với sức khỏe, đừng nghe tin đồn, hãy nghe bác sĩ và kiến thức y khoa.','BS Huỳnh Wynh Trần','168234863920230424150359oJdP5eESlBeCH7w4drUr1N6Wmk60VJjnz87PvXfH.png',150000.00,120000.00,100,0,0,1,'2023-04-24 08:03:59','2023-04-24 08:03:59');
+INSERT INTO `books` VALUES (1,'1TÔI VẼ - PHƯƠNG PHÁP TỰ HỌC VẼ TRUYỆN TRANH','toi-ve-phuong-phap-tu-hoc-ve-truyen-tranh','18936071672704',12,'a11“Tôi vẽ với 300 trang sách bao gồm những kỹ năng cơ bản cần có của một họa sĩ truyện tranh, từ tạo hình nhân vật, thiết kế bối cảnh, biểu cảm, các kỹ thuật diễn họa cho đến luật phối cảnh. Đây là một cuốn cẩm nang tuyệt vời dành cho các bạn đang bắt đầu học vẽ truyện tranh. Những kiến thức này có thể không giúp các bạn vẽ đẹp ngay lập tức nhưng sẽ là nền tảng vững chắc giúp bạn hình thành các tiêu chuẩn chuyên nghiệp trong nghề và không mất thời gian tự mò mẫm. Phần minh họa cho các bài học cũng rất hấp dẫn và sáng tạo. Các tác giả đã sử dụng chính nhân vật và trang truyện của mình để làm rõ sự liên quan giữa lý thuyết và thực tế, tính ứng dụng rõ ràng của các kỹ thuật và quy trình sáng tác.','1Phan Vũ Linh','168235149020230424155130s64XPXPjkPwenbc45DevQBGyQS3xl5KRNuWQ19cg.png',1100.00,180.00,1100,0,0,0,'2023-04-24 08:02:12','2023-04-24 08:55:51'),(3,'TRONG PHÒNG CHỜ VỚI BÁC SĨ WYNN - TẬP 2','trong-phong-cho-voi-bac-si-wynn-tap-2','9786043925050',2,'Sau khi quyển sách \"Trong phòng chờ với Bác sĩ Wynn\" tập 1 được đón nhận, Bác sĩ Wynn tiếp tục cho ra mắt \"Trong phòng chờ với Bác sĩ Wynn\" tập 2 với nhiều bài viết bổ sung về kiến thức y học thường thức, giúp quý vị độc giả có thêm kiến thức để bảo vệ sức khỏe của bản thân và gia đình. Với sức khỏe, đừng nghe tin đồn, hãy nghe bác sĩ và kiến thức y khoa.','BS Huỳnh Wynh Trần','168234863920230424150359oJdP5eESlBeCH7w4drUr1N6Wmk60VJjnz87PvXfH.png',150000.00,120000.00,100,0,0,1,'2023-04-24 08:03:59','2023-04-24 08:03:59'),(4,'TRONG PHÒNG CHỜ VỚI BÁC SĨ WYNN - TẬP 2','trong-phong-cho-voi-bac-si-wynn-tap-2','9786043925050',2,'Sau khi quyển sách \"Trong phòng chờ với Bác sĩ Wynn\" tập 1 được đón nhận, Bác sĩ Wynn tiếp tục cho ra mắt \"Trong phòng chờ với Bác sĩ Wynn\" tập 2 với nhiều bài viết bổ sung về kiến thức y học thường thức, giúp quý vị độc giả có thêm kiến thức để bảo vệ sức khỏe của bản thân và gia đình. Với sức khỏe, đừng nghe tin đồn, hãy nghe bác sĩ và kiến thức y khoa.','BS Huỳnh Wynh Trần','168234863920230424150359oJdP5eESlBeCH7w4drUr1N6Wmk60VJjnz87PvXfH.png',150000.00,120000.00,100,0,0,1,'2023-04-24 08:03:59','2023-04-24 08:03:59');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `thumbnail` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -76,7 +76,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Toán học','8936071672704_85103de7755547f7995cbf7098e788d5_master.webp','2023-04-25 09:50:50','2023-04-25 09:50:50'),(2,'Văn học','8936071672704_85103de7755547f7995cbf7098e788d5_master.webp','2023-04-25 09:50:50','2023-04-25 09:50:50'),(3,'undefined','1682339872202304241237528db4z8IAC8VrYnHFJhGZeAefEPZmf19OvAOnFHXk.png','2023-04-24 05:37:52','2023-04-24 05:37:52'),(5,'undefined','168234023920230424124359JMS9FIjsRoFOSPJL3KmO3i98bm278EBWmbCS1rCn.png','2023-04-24 05:43:59','2023-04-24 05:43:59'),(7,'sáasa','168234144020230424130400r3PZa8KRIqtnBPTtKUrm1v00NLdjCFPGX0pFr8Uz.png','2023-04-24 06:04:00','2023-04-24 06:04:00');
+INSERT INTO `categories` VALUES (1,'Toán học','Toán học','2023-04-25 09:50:50','2023-04-24 09:16:44'),(2,'Văn học','Văn học','2023-04-25 09:50:50','2023-04-24 09:16:52'),(3,'Ngoại ngữ','Ngoại ngữ','2023-04-24 05:37:52','2023-04-24 09:17:08'),(5,'Âm nhạc','Âm nhạc','2023-04-24 05:43:59','2023-04-24 09:17:34');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-24 22:08:56
+-- Dump completed on 2023-04-24 23:23:34

@@ -288,7 +288,6 @@
             </nav>
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
-                <!-- partial:../../partials/_sidebar.html -->
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item">
@@ -436,18 +435,27 @@
                 </nav>
                 <!-- partial -->
                 <div class="main-panel">
+                    @if(isset($category))
                     <div class="content-wrapper">
                         <div class="row">
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            Thêm danh mục
+                                            Cập nhật danh mục
                                         </h4>
                                         <form
                                             class="forms-sample"
                                             onsubmit="submitForm(event)"
                                         >
+                                            @csrf
+                                            <input
+                                                name="id"
+                                                type="hidden"
+                                                class="form-control"
+                                                id="categoryId"
+                                                value="{{$category->id}}"
+                                            />
                                             <div class="form-group">
                                                 <label for="name"
                                                     >Tên danh mục</label
@@ -456,54 +464,24 @@
                                                     type="text"
                                                     class="form-control"
                                                     id="name"
+                                                    value="{{$category->name}}"
                                                 />
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name"
-                                                    >Mô tả</label
-                                                >
+                                                <label for="name">Mô tả</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
                                                     id="description"
+                                                    value="{{$category->description}}"
                                                 />
                                             </div>
-
-                                            <!-- <div class="form-group">
-                                                <label>Hình ảnh</label>
-                                                <input
-                                                    type="file"
-                                                    name="img[]"
-                                                    class="file-upload-default"
-                                                />
-                                                <div
-                                                    class="input-group col-xs-12"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        class="form-control file-upload-info"
-                                                        disabled
-                                                        placeholder="Upload Image"
-                                                    />
-                                                    <span
-                                                        class="input-group-append"
-                                                    >
-                                                        <button
-                                                            class="file-upload-browse btn btn-primary text-white"
-                                                            type="button"
-                                                        >
-                                                            Upload
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </div> -->
-
                                             <button
                                                 type="submit"
                                                 class="btn btn-primary me-2 text-white btn-save"
                                             >
-                                                Thêm mới
+                                                Cập nhật
                                             </button>
                                             <a
                                                 href="/admin/category"
@@ -516,6 +494,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <!-- content-wrapper ends -->
                     <!-- partial:../../partials/_footer.html -->
                     <footer class="footer">
@@ -572,6 +551,7 @@
             }
             $(".btn-save").click(function () {
                 var form_data = new FormData();
+                var id = $('#categoryId').val();
                 var name = $("#name").val();
                 var description = $("#description").val();
                 if (!name) {
@@ -586,11 +566,12 @@
                     return;
                 }
                 form_data.append("_token", "{{csrf_token()}}");
+                form_data.append("id", id);
                 form_data.append("name", name);
                 form_data.append("description", description);
                 $.ajax({
                     type: "post",
-                    url: "/admin/category",
+                    url: "/admin/update-category",
                     data: form_data,
                     dataType: "json",
                     contentType: false,
@@ -602,7 +583,7 @@
                             }, 1600);
                             swal({
                                 title: "Hoàn thành!",
-                                text: "Thêm danh mục thành công",
+                                text: "Cập nhật danh mục thành công",
                                 icon: "success",
                                 buttons: true,
                                 buttons: ["Ok"],
@@ -612,7 +593,7 @@
                         if (response.is === "unsuccess") {
                             swal({
                                 title: "Lỗi!",
-                                text: "Không thêm được danh mục",
+                                text: "Không cập nhật được danh mục",
                                 icon: "warning",
                                 buttons: true,
                                 buttons: ["Ok"],

@@ -166,7 +166,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/admin/dashboard">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Trang chủ</span>
             </a>
@@ -179,8 +179,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/admin/category">Danh sách các danh mục</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/admin/book">Danh sách các đầu sách</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/category">Danh mục</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/book">Sách</a></li>
               </ul>
             </div>
           </li>

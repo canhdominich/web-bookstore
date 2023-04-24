@@ -755,15 +755,15 @@
                     return;
                 }
                 form_data.append("_token", "{{csrf_token()}}");
-                form_data.append("name", name);
+                form_data.append("name", name.trim());
                 form_data.append("image", image);
-                form_data.append("code", code);
-                form_data.append("author", author);
-                form_data.append("description", description);
-                form_data.append("category_id", category_id);
-                form_data.append("quantity", quantity);
-                form_data.append("price_sale", price_sale);
-                form_data.append("price", price);
+                form_data.append("code", code.trim());
+                form_data.append("author", author.trim());
+                form_data.append("description", description.trim());
+                form_data.append("category_id", +category_id);
+                form_data.append("quantity", +quantity);
+                form_data.append("price_sale", +price_sale);
+                form_data.append("price", +price);
                 form_data.append("status", status);
                 $.ajax({
                     type: "post",

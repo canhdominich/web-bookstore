@@ -171,7 +171,7 @@ Danh sách sách
 		  <nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<ul class="nav">
 			  <li class="nav-item">
-				<a class="nav-link" href="index.html">
+				<a class="nav-link" href="/admin/dashboard">
 				  <i class="mdi mdi-home menu-icon"></i>
 				  <span class="menu-title">Trang chủ</span>
 				</a>
@@ -184,8 +184,8 @@ Danh sách sách
 				</a>
 				<div class="collapse" id="ui-basic">
 				  <ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="/admin/book">Danh sách các sách</a></li>
-					<li class="nav-item"> <a class="nav-link" href="/admin/book">Danh sách các đầu sách</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/admin/category">Danh mục</a></li>
+                	<li class="nav-item"> <a class="nav-link" href="/admin/book">Sách</a></li>
 				  </ul>
 				</div>
 			  </li>
@@ -278,13 +278,12 @@ Danh sách sách
 								<td class="col-sm-1 text-center">{{$value->quantity}}</td>
 								<td class="col-sm-1 text-center">{{$value->bought}}</td>
 								<td class="col-sm-2 text-center">
-									<button data-id="{{$value->id}}" type="button" class="btn btn-warning btn-edit" >
+									<a href="/admin/book/{{$value->id}}" class="btn btn-warning btn-edit">
 										<i class="mdi mdi-table-edit" style="color: #fff;"></i>
-									</button>
-
-									<button data-id="{{$value->id}}" type="button" class="btn btn-danger btn-delete">
+									</a>
+									<a href="#" data-id="{{$value->id}}" type="button" class="btn btn-danger btn-delete">
 										<i class="mdi mdi-delete-forever" style="color: #fff;"></i>
-									</button>
+									</a>
 								</td>
 								<style>
 									button i::before {

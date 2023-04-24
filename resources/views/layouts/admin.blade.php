@@ -66,8 +66,9 @@
     <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.js') }}"></script>
     <!-- End custom js for this page-->
     <script src="{{ asset('admin/assets/js/jquery.cookie.js') }}"></script>
-
-    @livewireScripts
+    <script type="text/javascript" src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
+    
+    @yield('js')
 </body>
 
 </html>

@@ -20,8 +20,8 @@
             </a>
             <div class="collapse" id="categories_menu">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/categories/create') }}">Add Category</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/categories') }}">View Categories</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/new/category') }}">Add Category</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/category') }}">View Categories</a></li>
                 </ul>
             </div>
         </li>
@@ -33,8 +33,8 @@
             </a>
             <div class="collapse" id="products_menu">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add Product</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products') }}">View Products</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/new/book') }}">Add Product</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/book') }}">View Products</a></li>
                 </ul>
             </div>
         </li>

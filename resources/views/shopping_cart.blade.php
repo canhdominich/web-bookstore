@@ -1,4 +1,4 @@
-@extends('layouts.master_home')
+@extends('layouts.home')
 
 @section('title')
     Giỏ hàng - Book Store

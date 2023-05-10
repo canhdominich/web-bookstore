@@ -136,7 +136,7 @@
                     <div class="em-logo col-xs-10" style="margin-right: 0px;">
                         <a href="tel:0899766566">    
                             <img src="{{asset('/images/icons/call-2.gif')}}" alt="" style="width: 25px; height: 25px;">
-                            <span style="font-weight:bold; font-size:14px;"><span style="color:#0000FF;">0899 766 566</span></span> 
+                            <span style="font-weight:bold; font-size:14px;"><span style="color:#0000FF;">0666 888 999</span></span> 
                         </a>
                     </div>
                 </div>
@@ -295,7 +295,7 @@
                                                 <li class=""> 
                                                     <a href="tel:0899766566">    
                                                         <img src="{{asset('/images/icons/call-2.gif')}}" alt="" style="width: 25px; height: 25px;">
-                                                        <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span style="color:#0000FF;">0899 766 566</span></span> 
+                                                        <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span style="color:#0000FF;">0666 888 999</span></span> 
                                                     </a>
                                                 </li>
                                             </ul>
@@ -578,20 +578,9 @@
                                             
                                             <div class="col-sm-8 text-center" style="margin-bottom : 20px;">
                                                 <div class="em-block-title">
-                                                    <p class="h4 em-text-upercase"><span>Chủ sở hữu</span>
+                                                    <p class="h4 em-text-upercase"><span>Nhà sách</span>
                                                     </p>
                                                 </div>
-                                                <p style="color: #ffffff;">
-                                                    <a href="{{ url('/') }}">
-                                                        Hộ kinh doanh <span>Nhà thuốc Nhi khoa</span>
-                                                    </a>
-                                                </p>
-                                                <p style="color: #ffffff;">
-                                                     Giấy phép ĐKKD số: 01M8027765 Cấp ngày 08/08/2021
-                                                </p>
-                                                <p style="color: #ffffff;">
-                                                    Dược sĩ phụ trách CM: Lê Mạnh Hùng
-                                                </p>
                                                 <br>
                                                 <p style="color: #ffffff;">
                                                     Cơ sở 1: Số 88 Tô Vĩnh Diện, Phường Khương Trung, Quận Thanh Xuân, Hà Nội
@@ -613,27 +602,27 @@
                                                         </a>
                                                     </li>
                                                     <li class="em-links-item">
-                                                        <a href="{{ url('/phuong-thuc-van-chuyen') }}">
+                                                        <a href="#">
                                                             <span>Phương thức vận chuyển</span>
                                                         </a>
                                                     </li>
                                                     <li class="em-links-item">
-                                                        <a href="{{ url('/hinh-thuc-thanh-toan') }}">
+                                                        <a href="#">
                                                             <span>Hình thức thanh toán</span>
                                                         </a>
                                                     </li>
                                                     <li class="em-links-item">
-                                                        <a href="{{ url('/chinh-sach-doi-tra') }}">
+                                                        <a href="#">
                                                             <span>Chính sách đổi trả</span>
                                                         </a>
                                                     </li>
                                                     <li class="em-links-item">
-                                                        <a href="{{ url('/quy-dinh-su-dung') }}">
+                                                        <a href="#">
                                                             <span>Chính sách bảo mật</span>
                                                         </a>
                                                     </li>
                                                     <li class="em-links-item">
-                                                        <a href="{{ url('/lien-he') }}">
+                                                        <a href="#">
                                                             <span>Liên hệ</span>
                                                         </a>
                                                     </li>
@@ -666,14 +655,14 @@
 
                                             <div class="col-sm-6 text-center">
                                                 <div class="em-block-title">
-                                                    <p class="h4 em-text-upercase"><span>Hỗ trợ khách hàng</span>
+                                                    <p class="h4 em-text-upercase"><span>Chăm sóc khách hàng</span>
                                                     </p>
                                                 </div>
                                                 <ul id="collapse02" class="em-links em-block-content block-info">
                                                     <li class="em-links-item">
                                                         <a href="tel:0899766566">    
                                                             <img src="{{asset('/images/icons/call-3.gif')}}" alt="" style="width: 40px; height: 40px;">
-                                                            <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span>0899 766 566</span></span> 
+                                                            <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span>0666 888 999</span></span> 
                                                         </a>
                                                     </li>
                                                     <!-- <style>

@@ -7,12 +7,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="mdi mdi-cash-multiple menu-icon"></i>
-                <span class="menu-title">Sales</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#categories_menu" aria-expanded="false" aria-controls="categories_menu">
                 <i class="mdi mdi-package menu-icon"></i>
                 <span class="menu-title">Categories</span>
@@ -37,6 +31,28 @@
                     <li class="nav-item"> <a class="nav-link" href="{{ url('admin/book') }}">View Products</a></li>
                 </ul>
             </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#products_menu" aria-expanded="false" aria-controls="products_menu">
+                <i class="mdi mdi-movie menu-icon"></i>
+                <span class="menu-title">Quản lý đơn hàng</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="products_menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/order') }}"><i class="fa fa-building"></i>Toàn bộ đơn hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/order_pending') }}"><i class="fa fa-hospital-o"></i>Đơn hàng đang chờ</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/order_shipped') }}"><i class="glyphicon glyphicon-gift"></i>Đơn hàng đang giao</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/order_delivered') }}"><i class="glyphicon glyphicon-ok-circle"></i>Đơn hàng đã giao</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin/order_cancel') }}"><i class="glyphicon glyphicon-remove-circle"></i>Đơn hàng đã hủy</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="mdi mdi-cash-multiple menu-icon"></i>
+                <span class="menu-title">Sales</span>
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">

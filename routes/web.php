@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthAdmin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\OrderController;
 
 use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\Customer\CheckoutController;
@@ -26,6 +27,9 @@ use App\Http\Controllers\Customer\AccountController;
 use App\Http\Controllers\Customer\ChangePasswordController;
 use App\Http\Controllers\Customer\WishlistController;
 use App\Http\Controllers\Customer\OrderHistoryController;
+use App\Http\Controllers\Customer\HomeController;
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('home');
@@ -88,6 +92,7 @@ Route::post('/checkout/payment', [CheckoutController::class, 'order']);
 // order-received
 Route::get('/checkout/order-received/{order_id}', [CheckoutController::class, 'orderReceived']);
 
+Route::get('/san-pham/{slug}', [HomeController::class, 'bookDetail']);
 
 Route::group(['prefix' => '/', 'middleware' => 'CheckUserLogin'], function () {
     // my account
@@ -117,11 +122,6 @@ Route::get('/admin/table', function () {
     return view('admin.basic-table');
 });
 
-
-Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-    // Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
-});
-
 // admin
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', [LoginController::class, 'showLoginForm']);
@@ -141,4 +141,16 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/new/book', function () {
         return view('admin.book.new-book');
     });
+
+    // orders
+    Route::get('/order', [OrderController::class, 'index']);
+    Route::get('/order/{order_id}', [OrderController::class, 'show']);
+    Route::get('/order_note/{id}', [OrderController::class, 'note']);
+    Route::put('/order/{id}', [OrderController::class, 'update']);
+    Route::put('/order/cancel/{id}', [OrderController::class, 'cancelOrder']);
+    // Route::delete('/order/{id}', [OrderController::class, 'destroy']);
+    Route::get('/order_pending', [OrderController::class, 'pending']);
+    Route::get('/order_shipped', [OrderController::class, 'shipped']);
+    Route::get('/order_delivered', [OrderController::class, 'delivered']);
+    Route::get('/order_cancel', [OrderController::class, 'cancel']);
 });

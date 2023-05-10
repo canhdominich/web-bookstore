@@ -1,4 +1,4 @@
-@extends('layouts.master_home')
+@extends('layouts.home')
 
 @section('title')
 Book Store
@@ -25,7 +25,7 @@ Book Store
         </a>
         <div class="em-banner-right">
             <h5><a title="Free shipping all order" href="javascript:void(0)">Tư vấn</a></h5>
-            <p style="font-size : 13px;">Đội ngũ dược sĩ chuyên môn cao, tư vấn tận tình</p>
+            <p style="font-size : 13px;">Số lượng đầu sách chuyên môn cao, tư vấn tận tình</p>
         </div>
     </div>
     <div class="text-box col-sm-8">
@@ -917,128 +917,6 @@ Book Store
 </script>
 @endsection
 
-
-@section('interesting')
-<div class="row" style="margin-top : 15px;">
-    <h3 class="section-title section-title-center" style="text-align: center; text-transform: uppercase; color : #555;">
-    <b></b>
-    <span class="section-title-main">Quan tâm nhiều nhất</span>
-    <b></b>
-    </h3>
-    <div class="em-wrapper-banners">
-        <div class=" slider-style02">
-            <div class="em-slider em-slider-banners em-slider-navigation-icon" 
-                data-emslider-navigation="true" data-emslider-items="6" 
-                data-emslider-desktop="5" data-emslider-desktop-small="4" 
-                data-emslider-tablet="3" data-emslider-mobile="2">
-
-                    @if(isset($most_interesting_products))
-                        @foreach($most_interesting_products as $item)
-                        <div class="item" style="margin-top : 30px;">
-                            <a href="{{ url('/san-pham/'.$item->slug) }}">
-                                <img class="img-responsive em-alt-org em-lazy-loaded" src="{{asset('images/'.$item->image)}}" alt="{{$item->name}}" height="110" width="110">
-                            </a>
-                            <div class="product-shop">
-                                <div class="f-fix">
-                                    <!--product name-->
-                                    <h3 class="product-name" style="margin-top : 10px;">
-                                    <a href="{{ url('/san-pham/'.$item->slug) }}" title="">{{$item->name}}</a></h3>
-                                    <!--product price-->
-                                    <div class="price-box">
-                                        @if($item->price_sale < $item->price)
-                                        <p class="old-price">
-                                            <span class="price">
-                                            {{number_format($item->price*1000 ,0 ,'.' ,'.')}} VND
-                                            </span>
-                                        </p>
-                                        @endif
-
-                                        <p class="special-price">
-                                            <span class="price" content="60" style="color: #0000FF;">
-                                            {{number_format($item->price_sale*1000 ,0 ,'.' ,'.')}} VND
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.item -->
-                        @endforeach
-                    @endif
-            </div>
-        </div><!-- /.slider-style02 --> 
-    </div>
-</div>
-
-<div class="row" style="margin-top : 30px;">
-    <h3 class="section-title section-title-center" style="text-align: center; text-transform: uppercase; color : #555;">
-    <b></b>
-    <span class="section-title-main">Mua nhiều nhất</span>
-    <b></b>
-    </h3>
-    <div class="em-wrapper-banners">
-        <div class=" slider-style02">
-            <div class="em-slider em-slider-banners em-slider-navigation-icon" 
-                data-emslider-navigation="true" data-emslider-items="6" 
-                data-emslider-desktop="5" data-emslider-desktop-small="4" 
-                data-emslider-tablet="3" data-emslider-mobile="2">
-
-                    @if(isset($most_sold_products))
-                        @foreach($most_sold_products as $item)
-                        <div class="item" style="margin-top : 30px;">
-                            <a href="{{ url('/san-pham/'.$item->slug) }}">
-                                <img class="img-responsive em-alt-org em-lazy-loaded" src="{{asset('images/'.$item->image)}}" alt="{{$item->name}}" height="110" width="110">
-                            </a>
-                            <div class="product-shop">
-                                <div class="f-fix">
-                                    <!--product name-->
-                                    <h3 class="product-name" style="margin-top : 10px;"><a href="{{ url('/san-pham/'.$item->slug) }}" title="">{{$item->name}}</a></h3>
-                                    <!--product price-->
-                                    <div class="price-box">
-                                        @if($item->price_sale < $item->price)
-                                        <p class="old-price">
-                                            <span class="price">
-                                            {{number_format($item->price*1000 ,0 ,'.' ,'.')}} VND
-                                            </span>
-                                        </p>
-                                        @endif
-
-                                        <p class="special-price">
-                                            <span class="price" content="60" style="color: #0000FF;">
-                                            {{number_format($item->price_sale*1000 ,0 ,'.' ,'.')}} VND
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.item -->
-                        @endforeach
-                    @endif
-            </div>
-        </div><!-- /.slider-style02 --> 
-    </div>
-</div>
-
-<style>
-    .section-title {
-        position: relative;
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-    .section-title b {
-        display: block;
-        -ms-flex: 1;
-        flex: 1;
-        height: 2px;
-        opacity: .1;
-        background-color: currentColor;
-    }
-</style>
-@endsection
-
-
 @section('feature')
 <div class="col-sm-24  text-center">
     <h3 class="section-title section-title-center" style="text-align: center; text-transform: uppercase; color : #555;">
@@ -1054,8 +932,8 @@ Book Store
                 <p><em class="fa fa-fw"></em>
                 </p>
                 <div class="em-ads-content">
-                    <h4 class="primary em-text-upercase">Đội ngũ dược sĩ</h4>
-                    <p>Book Store tự hào khi sở hữu đội ngũ dược sĩ hàng đầu tại Việt Nam</p>
+                    <h4 class="primary em-text-upercase">Số lượng đầu sách</h4>
+                    <p>Book Store tự hào khi sở hữu Số lượng đầu sách hàng đầu tại Việt Nam</p>
                 </div>
             </div>
         </div><!-- /.em-wrapper-ads-item -->

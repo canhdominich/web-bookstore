@@ -28,6 +28,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="name">Slug</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="slug"
+                            value="{{$category->slug}}"
+                            disabled
+                        />
+                    </div>
+                    <div class="form-group">
                         <label for="name">Mô tả</label>
                         <input
                             type="text"
@@ -62,6 +72,7 @@
         var form_data = new FormData();
         var id = $("#categoryId").val();
         var name = $("#name").val();
+        var slug = $("#slug").val();
         var description = $("#description").val();
         if (!name) {
             swal({
@@ -77,6 +88,7 @@
         form_data.append("_token", "{{csrf_token()}}");
         form_data.append("id", id);
         form_data.append("name", name);
+        form_data.append("slug", slug);
         form_data.append("description", description);
         $.ajax({
             type: "post",

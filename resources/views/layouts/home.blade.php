@@ -61,7 +61,7 @@
     <link rel='stylesheet' type='text/css' media='all' href="{{asset('home/css/color.css')}}" />
 
     <!--Search CSS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('home/css/searching-canhdominich.css')}}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{asset('home/css/searching.css')}}" media="all" />
 
     <link rel="stylesheet" type="text/css" href="{{asset('home/css/loader.css')}}">
 
@@ -95,25 +95,9 @@
     <script type="text/javascript" src="{{asset('home/js/custom.js')}}"></script>
 
     @yield('js')
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151736414-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-151736414-1');
-    </script>
 </head>
 
 <body class="cms-index-index">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RLZGHQ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
     <div class="wrapper ">
         <noscript>
             <div class="global-site-notice noscript">
@@ -136,7 +120,7 @@
                     <div class="em-logo col-xs-10" style="margin-right: 0px;">
                         <a href="tel:0899766566">    
                             <img src="{{asset('/images/icons/call-2.gif')}}" alt="" style="width: 25px; height: 25px;">
-                            <span style="font-weight:bold; font-size:14px;"><span style="color:#0000FF;">0666 888 999</span></span> 
+                            <span style="font-weight:bold; font-size:14px;"><span style="color:#00ab9f;">0666 888 999</span></span> 
                         </a>
                     </div>
                 </div>
@@ -248,7 +232,7 @@
                                                 <li class=""> 
                                                     <a href="tel:0899766566">    
                                                         <img src="{{asset('/images/icons/call-2.gif')}}" alt="" style="width: 25px; height: 25px;">
-                                                        <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span style="color:#0000FF;">0666 888 999</span></span> 
+                                                        <span style="font-weight:bold; font-size:14px;"><span>Hotline:</span> <span style="color:#00ab9f;">0666 888 999</span></span> 
                                                     </a>
                                                 </li>
                                             </ul>
@@ -373,7 +357,7 @@
                         </div>
                     </div><!-- /.em-header-top -->
                     <div id="em-fixed-top"></div>
-                    <div class="em-header-bottom em-fixed-top" style="background : rgb(199, 226, 198);">
+                    <div class="em-header-bottom em-fixed-top" style="background : #00ab9f">
                         <div class="container em-menu-fix-pos">
                             <div class="row">
                                 <div class="col-sm-24">
@@ -439,7 +423,10 @@
                                                     <div class="em_nav" id="toogle_menu_4_7164">
                                                         <ul class="hnav em_hoz_menu effect-menu">
                                                             <li class="menu-item-link menu-item-depth-0 hidden-sm hidden-md menu-item-parent">
-                                                                <a class="em-menu-link" href="{{ url('/goc-suc-khoe') }}"> <span> Sức khỏe cho bé </span> </a>
+                                                                <a class="em-menu-link" href="/"> <span> Trang chủ </span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 hidden-sm hidden-md menu-item-parent">
+                                                                <a class="em-menu-link" href="#"> <span> Danh mục sách </span> </a>
                                                                 <ul class="menu-container" style="dropdown-menu">
                                                                     <li class="menu-item-vbox menu-item-depth-1 col-menu menu_col5 grid_6 menu-item-parent" style="">
                                                                         <ul class="menu-container">
@@ -447,10 +434,10 @@
                                                                                 <div class="em-line-01">
                                                                                     <div>
                                                                                         <ul class="menu-container" style="">
-                                                                                            @if(isset($categories))
-                                                                                                @foreach($categories as $value)
+                                                                                            @if(isset($list_categories))
+                                                                                                @foreach($list_categories as $value)
                                                                                                     <li class="menu-item-link menu-item-depth-1 first"> 
-                                                                                                        <a class="em-menu-link" href="/chuyen-muc/{{$value->slug}}">
+                                                                                                        <a class="em-menu-link" href="/danh-muc/{{$value->slug}}">
                                                                                                             <span>{{$value->name}}</span>
                                                                                                         </a>
                                                                                                     </li>   
@@ -612,7 +599,7 @@
                                                     </li>
                                                     <!-- <style>
                                                         #hotline-footer:hover{
-                                                            color: #0000FF !important;
+                                                            color: #00ab9f !important;
                                                         }
                                                     </style> -->
                                                 </ul>

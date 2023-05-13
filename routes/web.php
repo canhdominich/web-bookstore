@@ -29,6 +29,7 @@ use App\Http\Controllers\Customer\ChangePasswordController;
 use App\Http\Controllers\Customer\WishlistController;
 use App\Http\Controllers\Customer\OrderHistoryController;
 use App\Http\Controllers\Customer\HomeController;
+use App\Http\Controllers\Customer\BookController as CustomerBookController;
 
 Auth::routes();
 
@@ -49,7 +50,7 @@ Route::get('/register', function () {
 });
 
 Route::post('/register', [RegisterController::class, 'register']);
-
+Route::get('/danh-muc/{slug}', [CustomerBookController::class, 'index']);
 
 // cart
 Route::post('/add/item', [CartController::class, 'addSpecialItem']);

@@ -151,17 +151,17 @@
 
     /* Mobile Navigation */
     function fixNavigationMobileView() {
-        var $_winW = $(window).width();
-        var $_mmenu = $('#em-mheader-menu-content');
-        var elem = $('#em-mheader-menu-content');
-        var $_parent = $('#em-mheader-wrapper-menu');
-        var $_iconNav = $('#em-mheader-menu-icon');
-        if (!isPhone || $_winW > 767) {
-            $_mmenu.removeClass();
-            $_iconNav.removeClass('active');
-            elem.removeClass('show');
-            $_parent.removeClass('active');
-        }
+        // var $_winW = $(window).width();
+        // var $_mmenu = $('#em-mheader-menu-content');
+        // var elem = $('#em-mheader-menu-content');
+        // var $_parent = $('#em-mheader-wrapper-menu');
+        // var $_iconNav = $('#em-mheader-menu-icon');
+        // if (!isPhone || $_winW > 767) {
+        //     $_mmenu.removeClass();
+        //     $_iconNav.removeClass('active');
+        //     elem.removeClass('show');
+        //     $_parent.removeClass('active');
+        // }
     };
 
     function fixNavOverFlow() {

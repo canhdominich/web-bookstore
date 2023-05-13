@@ -18,11 +18,14 @@
                                 <th class="col-sm-3 text-center">
                                     Tên danh mục
                                 </th>
-                                <th class="col-sm-3 text-center">
+                                <th class="col-sm-2 text-center">
+                                    Slug
+                                </th>
+                                <th class="col-sm-2 text-center">
                                     Mô tả danh mục
                                 </th>
                                 <th class="col-sm-2 text-center">Ngày tạo</th>
-                                <th class="col-sm-3 text-center">Hành động</th>
+                                <th class="col-sm-2 text-center">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,13 +38,16 @@
                                 <td class="col-sm-3 text-center">
                                     {{$value->name}}
                                 </td>
-                                <td class="col-sm-3 text-center">
+                                <td class="col-sm-2 text-center">
+                                    {{$value->slug}}
+                                </td>
+                                <td class="col-sm-2 text-center">
                                     {{$value->description}}
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     {{$value->created_at}}
                                 </td>
-                                <td class="col-sm-3 text-center">
+                                <td class="col-sm-2 text-center">
                                     <a
                                         href="/admin/category/{{$value->id}}"
                                         class="btn btn-warning btn-edit"
@@ -80,32 +86,6 @@
 
 @endsection @section('js')
 <script type="text/javascript">
-    // show
-    $(".btn-show").click(function () {
-        var id = $(this).attr("data-id");
-        $.ajax({
-            type: "get",
-            url: "/admin/category/" + id,
-            data: {
-                _token: $('[name="_token"]').val(),
-            },
-            success: function (response) {
-                $("#showName").val(response.name),
-                    $("#showPrice").val(response.price),
-                    $("#showThumbnail").attr(
-                        "src",
-                        "/images/categories/" + response.thumbnail
-                    ),
-                    $("#showExpirationPeriod").val(response.expiration_period),
-                    $("#showDescription").val(response.description),
-                    $("#showCreatedAt").val(response.created_at),
-                    $("#showUpdatedAt").val(response.updated_at);
-            },
-        });
-
-        $("#showCategory").modal("show");
-    });
-
     $(".btn-edit").click(function () {
         var id = $(this).attr("data-id");
         $.ajax({
@@ -117,12 +97,6 @@
             success: function (response) {
                 $("#editID").val(response.id),
                     $("#editName").val(response.name),
-                    $("#editPriceId").val(response.price),
-                    $("#editExpirationPeriod").val(response.expiration_period),
-                    $("#Thumbnail").attr(
-                        "src",
-                        "/images/categories/" + response.thumbnail
-                    ),
                     $("#editSlug").val(response.slug),
                     $("#editDescription").val(response.description);
             },
@@ -137,11 +111,7 @@
         form_data.append("_token", "{{csrf_token()}}");
         form_data.append("id", $("#editID").val());
         form_data.append("name", $("#editName").val());
-        form_data.append("price", $("#editPriceId").val());
-        form_data.append("expiration_period", $("#editExpirationPeriod").val());
-        form_data.append("thumbnail", $("input[type=file]")[0].files[0]);
         form_data.append("description", $("#editDescription").val());
-
         $.ajax({
             type: "post",
             url: "/admin/update_category",

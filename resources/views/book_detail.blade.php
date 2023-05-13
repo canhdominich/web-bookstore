@@ -108,7 +108,7 @@
                                                                 content="60"
                                                                 id="product-price-182-emprice-e28d8be0787e9d8ae65c6afe74f8df0a"
                                                                 style="
-                                                                    color: #0000ff;
+                                                                    color: #00ab9f;
                                                                 "
                                                             >
                                                                 {{number_format($book->price_sale*1000 ,0 ,'.' ,'.')}}

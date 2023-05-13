@@ -111,7 +111,7 @@
                     var url = 'https://';
                     url += window.location.hostname;
                     url += '/confirm/otp';
-					$(".unsuccess-mesage").find("ul").append('<li><i class="fa fa-exclamation-triangle"></i> '+response.uncomplete+' <a href=" '+url+' " style="color:#0000FF; text-decoration:none;"> tại đây</a>.</li>');
+					$(".unsuccess-mesage").find("ul").append('<li><i class="fa fa-exclamation-triangle"></i> '+response.uncomplete+' <a href=" '+url+' " style="color:#00ab9f; text-decoration:none;"> tại đây</a>.</li>');
 
 					window.scroll({
 						top: 0,

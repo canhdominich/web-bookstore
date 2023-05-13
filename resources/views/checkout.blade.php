@@ -218,7 +218,7 @@
                                                 </div>
                                                 <br>
                                                 <div class="col-sm-24">
-                                                    <p style="font-size: 13px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #0000FF !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
+                                                    <p style="font-size: 13px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #00ab9f !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
                                                 </div>
                                             </div>
                                             @else
@@ -232,7 +232,7 @@
                                                     </div>
                                                     <br>
                                                     <div class="col-sm-24">
-                                                        <p style="font-size: 13.5px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #0000FF !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
+                                                        <p style="font-size: 13.5px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #00ab9f !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
                                                     </div>
                                                 </div>
                                             @endif
@@ -247,7 +247,7 @@
                                                 </div>
                                                 <br>
                                                 <div class="col-sm-24">
-                                                    <p style="font-size: 13.5px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #0000FF !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
+                                                    <p style="font-size: 13.5px; text-align:center;">(Chưa bao gồm phí vận chuyển. Xem thông tin <a target="_blank" href="{{url('/phuong-thuc-van-chuyen')}}" style="color: #00ab9f !important; font-weight:600 !important;">chi phí vận chuyển</a> )</p>
                                                 </div>
                                             </div>
                                         @endif

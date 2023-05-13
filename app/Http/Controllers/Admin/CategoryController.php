@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -35,6 +36,7 @@ class CategoryController extends Controller
 
         $data = $request->all();
         unset($data['_token']);
+        $data['slug'] = Str::slug($data['name']);
         $category = Category::create($data);
         if (isset($category)) {
             return response()->json(['is' => 'success', 'complete' => 'Danh mục được thêm thành công']);
@@ -69,6 +71,7 @@ class CategoryController extends Controller
         $category = Category::find($data['id']);
         unset($data['_token']);
         unset($data['id']);
+        $data['slug'] = Str::slug($data['name']);
         $flag = $category->update($data);
         if ($flag) {
             return response()->json(['is' => 'success', 'complete' => 'Danh mục đã được cập nhật']);

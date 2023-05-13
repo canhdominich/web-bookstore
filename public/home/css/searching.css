@@ -13,7 +13,7 @@
 }
 
 #widget-rs-search::-webkit-scrollbar-thumb {
-    background-color: #0000FF;
+    background-color: #00ab9f;
     border-radius: 15px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 #mini-widget-rs-search::-webkit-scrollbar-thumb {
-    background-color: #0000FF;
+    background-color: #00ab9f;
     border-radius: 15px;
 }
 

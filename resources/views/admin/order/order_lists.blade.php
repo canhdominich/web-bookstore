@@ -8,50 +8,96 @@
                     <table id="recent-purchases-listing" class="table">
                         <thead>
                             <tr>
-                                <th class="col-sm-1">Mã đơn hàng</th>
-                                <th class="col-sm-2">Họ và tên</th>
-                                <th class="col-sm-2">Email</th>
-                                <th class="col-sm-2">Số điện thoại</th>
-                                <th class="col-sm-2">Thời gian đặt hàng</th>
-                                <th class="col-sm-1">Tổng thanh toán</th>
-                                <th class="col-sm-2">Trạng thái</th>
+                                <th class="col-sm-1 text-center">
+                                    Mã đơn hàng
+                                </th>
+                                <th class="col-sm-2 text-center">Họ và tên</th>
+                                <th class="col-sm-2 text-center">Email</th>
+                                <th class="col-sm-2 text-center">
+                                    Số điện thoại
+                                </th>
+                                <th class="col-sm-2 text-center">
+                                    Thời gian đặt hàng
+                                </th>
+                                <th class="col-sm-1 text-center">
+                                    Tổng thanh toán
+                                </th>
+                                <th class="col-sm-2 text-center">Trạng thái</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if(isset($orders)) @foreach ($orders as $value)
                             <tr>
-                                <td class="col-sm-1">
+                                <td class="col-sm-1 text-center">
                                     <a
                                         href="/admin/order/{{$value->order_id}}"
                                         >{{$value->order_id}}</a
                                     >
                                 </td>
-                                <td class="col-sm-2">{{$value->name}}</td>
-                                <td class="col-sm-2">{{$value->email}}</td>
-                                <td class="col-sm-2">{{$value->phone}}</td>
-                                <td class="col-sm-2">{{$value->created_at}}</td>
+                                <td class="col-sm-2 text-center">
+                                    {{$value->name}}
+                                </td>
+                                <td class="col-sm-2 text-center">
+                                    {{$value->email}}
+                                </td>
+                                <td class="col-sm-2 text-center">
+                                    {{$value->phone}}
+                                </td>
+                                <td class="col-sm-2 text-center">
+                                    {{$value->created_at}}
+                                </td>
 
                                 <td class="col-sm-1">
                                     {{number_format(($value->amount+$value->score_awards)*1000 ,0 ,'.' ,'.')}}
                                     VND
                                 </td>
-                                <td class="col-sm-2">
+                                <td class="col-sm-2 text-center">
                                     @if($value->status == 0)
                                     <span
                                         class="btn btn-warning"
-                                        style="color: #fff; padding: 8px 20px; border-radius: 5px; text-transform: uppercase;"
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 5px;
+                                            text-transform: uppercase;
+                                        "
                                         >Đang chờ</span
                                     >
                                     @else @if($value->status == 1)
-                                    <span class="btn btn-success"
+                                    <span
+                                        class="btn"
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 5px;
+                                            text-transform: uppercase;
+                                            background: #288b00;
+                                        "
                                         >Đang giao hàng</span
                                     >
                                     @else @if($value->status == 2)
-                                    <span class="btn btn-info"
+                                    <span
+                                        class="btn btn-info"
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 5px;
+                                            text-transform: uppercase;
+                                            background: #288b00;
+                                        "
                                         >Đã giao hàng</span
                                     >
                                     @else @if($value->status == 3)
-                                    <span class="btn btn-danger">Đã hủy</span>
+                                    <span
+                                        class="btn btn-danger"
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 5px;
+                                            text-transform: uppercase;
+                                        "
+                                        >Đã hủy</span
+                                    >
                                     @endif @endif @endif @endif
                                 </td>
                             </tr>
@@ -71,7 +117,7 @@
         var id = $(this).attr("data-id");
         $.ajax({
             type: "get",
-            url: "/admin/category/" + id,
+            url: "/admin/order/" + id,
             data: {
                 _token: $('[name="_token"]').val(),
             },
@@ -80,7 +126,7 @@
                     $("#showPrice").val(response.price),
                     $("#showThumbnail").attr(
                         "src",
-                        "/images/categories/" + response.thumbnail
+                        "/images/orders/" + response.thumbnail
                     ),
                     $("#showExpirationPeriod").val(response.expiration_period),
                     $("#showDescription").val(response.description),
@@ -89,14 +135,14 @@
             },
         });
 
-        $("#showCategory").modal("show");
+        $("#showOrder").modal("show");
     });
 
     $(".btn-edit").click(function () {
         var id = $(this).attr("data-id");
         $.ajax({
             type: "get",
-            url: "/admin/category/" + id,
+            url: "/admin/order/" + id,
             data: {
                 _token: $('[name="_token"]').val(),
             },
@@ -107,14 +153,14 @@
                     $("#editExpirationPeriod").val(response.expiration_period),
                     $("#Thumbnail").attr(
                         "src",
-                        "/images/categories/" + response.thumbnail
+                        "/images/orders/" + response.thumbnail
                     ),
                     $("#editSlug").val(response.slug),
                     $("#editDescription").val(response.description);
             },
         });
 
-        $("#editCategory").modal("show");
+        $("#editOrder").modal("show");
     });
 
     $(".btn-update").click(function () {
@@ -160,7 +206,7 @@
                     });
 
                     setTimeout(function () {
-                        window.location.href = "/admin/category/";
+                        window.location.href = "/admin/order/";
                     }, 1000);
                 }
                 if (response.is === "unsuccess") {
@@ -184,7 +230,7 @@
             var id = $(this).attr("data-id");
             $.ajax({
                 type: "delete",
-                url: "/admin/category/" + id,
+                url: "/admin/order/" + id,
                 data: {
                     _token: $('[name="_token"]').val(),
                 },

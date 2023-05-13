@@ -10,25 +10,41 @@
                         <thead>
                             <tr>
                                 <th class="col-sm-2 text-center">#</th>
+                                <th class="col-sm-2 text-center">Avatar</th>
                                 <th class="col-sm-2 text-center">
                                     Tên người dùng
                                 </th>
-                                <th class="col-sm-2 text-center">
-                                    Email
-                                </th>
-                                <th class="col-sm-2 text-center">
-                                    Địa chỉ
-                                </th>
-                                <th class="col-sm-2 text-center">Ngày tạo</th>
+                                <th class="col-sm-2 text-center">Email</th>
+                                <th class="col-sm-2 text-center">Địa chỉ</th>
                                 <th class="col-sm-2 text-center">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if(isset($users)) @foreach ($users as
-                            $value)
+                            @if(isset($users)) @foreach ($users as $value)
                             <tr>
                                 <td class="col-sm-2 text-center">
                                     {{$value->id}}
+                                </td>
+                                <td class="col-sm-2 text-center">
+                                    @if($value->avatar)
+                                    <img
+                                        style="
+                                            width: 50px;
+                                            height: 50px;
+                                            border-radius: 100%;
+                                        "
+                                        src="{{$value->avatar}}"
+                                    />
+                                    @else
+                                    <img
+                                        style="
+                                            width: 50px;
+                                            height: 50px;
+                                            border-radius: 100%;
+                                        "
+                                        src="https://s3-us-west-1.amazonaws.com/s3-lc-upload/assets/default_avatar.jpg"
+                                    />
+                                    @endif
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     {{$value->name}}
@@ -38,9 +54,6 @@
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     {{$value->address}}
-                                </td>
-                                <td class="col-sm-2 text-center">
-                                    {{$value->created_at}}
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     <a

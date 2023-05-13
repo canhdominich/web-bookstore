@@ -37,7 +37,7 @@
                                                     <tr>
                                                         <td class="col-sm-3" style="text-align : center;">
                                                             <a class="product-image" href="{{url('/san-pham/'.$wishlist->slug)}}" > 
-                                                                <img src="{{asset('images/'.$wishlist->image)}}" style="width : 80px; height : 100px;" alt="{{$wishlist->name}}" /> 
+                                                                <img src="{{asset('images/books/'.$wishlist->image)}}" style="width : 80px; height : 100px;" alt="{{$wishlist->name}}" /> 
                                                             </a>
                                                             @if($wishlist->quantity > 0)
                                                                 <div style="background:#6df31a; color:#fff; font-weight:bold; font-size:12px; text-align:center;">
@@ -85,7 +85,7 @@
                                                         <td class="col-sm-3" style="text-align : center;">
                                                             @if($wishlist->quantity > 0)
                                                             <div class="add-to-cart-alt">
-                                                            <button title="Thêm vào giỏ hàng" data-id="{{$wishlist->product_id}}" type="button" class="button btn-cart btn-add-to-cart">
+                                                            <button title="Thêm vào giỏ hàng" data-id="{{$wishlist->book_id}}" type="button" class="button btn-cart btn-add-to-cart">
                                                             </button>
                                                             @endif
                                                         </div>
@@ -165,19 +165,7 @@
                                         </div>
                                     </div><!-- /.megamenu-wrapper -->
                                 </div>
-                            </div><!-- /.menuleft -->
-
-                            <div class="em-wrapper-area02"></div>
-                            @if(isset($promotion))
-                            <div class="em-wrapper-banners hidden-xs">
-                                <div class="em-effect06">
-                                    <a class="em-eff06-04" href="javascript:void(0)">
-                                    <img class="img-responsive retina-img" src="{{asset('/images/promotions/'.$promotion->image)}}" />
-                                    </a>
-                                </div>
-                            </div><!--  /.em-wrapper-banners -->
-                            @endif
-                            
+                            </div><!-- /.menuleft -->                            
                         </div><!-- /.block-layered-nav -->
 
                     </div><!-- /.em-sidebar -->
@@ -208,7 +196,7 @@
                         window.location.reload();
                     },
                     error: function(response){
-                        window.location.href="/";
+                        window.location.href="/wishlist";
                     }
                 })
             }

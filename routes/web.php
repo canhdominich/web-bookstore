@@ -83,12 +83,15 @@ Route::group(['prefix' => '/', 'middleware' => 'CheckUserLogin'], function () {
     Route::post('/change/password', [ChangePasswordController::class, 'changePassword']);
     // wishlist
     Route::get('/wishlist', [WishlistController::class, 'index']);
-    Route::get('/remove-wishlist/{product_id}', [WishlistController::class, 'delete']);
+    Route::delete('/remove-wishlist/{id}', [WishlistController::class, 'delete']);
     // my orders
     Route::get('/order/history/{user_id}', [OrderHistoryController::class, 'myOrder']);
     // order detail 
     Route::get('/order/detail/{user_id}', [OrderHistoryController::class, 'myOrderDetail']);
 });
+
+Route::post('/wishlist', [WishlistController::class, 'addWishlist']);
+
 
 // Create route for admin dashboard
 Route::get('/admin/login', function () {

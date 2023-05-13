@@ -1,11 +1,4 @@
-@extends('layouts.home')
-
-
-@section('title')
-Đăng ký - Book Store
-@endsection
-
-
+@extends('layouts.home') @section('title') Đăng ký - Book Store @endsection
 @section('home')
 <div class="row">
     <div class="em-col-main col-sm-24">
@@ -15,37 +8,112 @@
             </div>
             <form id="form-validate">
                 @csrf
-                <div class="error-mesage" style="display:none; width: 100%; font-size: 13px; color:#ff0000;">
+                <div
+                    class="error-mesage"
+                    style="
+                        display: none;
+                        width: 100%;
+                        font-size: 13px;
+                        color: #ff0000;
+                    "
+                >
                     <ul></ul>
                 </div>
 
-                <div class="success-mesage" style="display:none; width: 100%; font-size: 13px; color:#12f403;">
+                <div
+                    class="success-mesage"
+                    style="
+                        display: none;
+                        width: 100%;
+                        font-size: 13px;
+                        color: #12f403;
+                    "
+                >
                     <ul></ul>
                 </div>
 
-                <div class="unsuccess-mesage" style="display:none; width: 100%; font-size: 13px; color:#ff9800;">
+                <div
+                    class="unsuccess-mesage"
+                    style="
+                        display: none;
+                        width: 100%;
+                        font-size: 13px;
+                        color: #ff9800;
+                    "
+                >
                     <ul></ul>
                 </div>
 
                 <div class="fieldset">
-                    
                     <ul class="form-list">
                         <li class="fields">
                             <div class="field">
-                                <label for="phone" class="required"><em>*</em>Số điện thoại</label>
+                                <label for="email" class="required"
+                                    ><em>*</em>Email</label
+                                >
                                 <div class="input-box">
-                                    <input type="text" name="phone_number" id="phone_number" class="input-text" />
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        id="email"
+                                        class="input-text"
+                                    />
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="fields">
+                            <div class="field">
+                                <label for="name" class="required"
+                                    ><em>*</em>Name</label
+                                >
+                                <div class="input-box">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        class="input-text"
+                                    />
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="fields">
+                            <div class="field">
+                                <label for="password" class="required"
+                                    ><em>*</em>Password</label
+                                >
+                                <div class="input-box">
+                                    <input
+                                        type="text"
+                                        name="password"
+                                        id="password"
+                                        class="input-text"
+                                    />
                                 </div>
                             </div>
                         </li>
                     </ul>
-
                 </div>
                 <div class="fieldset">
                     <div class="buttons-set">
-                        <p style="font-size:13px;">Tôi đồng ý với các <a href="{{ url('/quy-dinh-su-dung') }}" style="color:#03A9F4;">điều khoản sử dụng</a> của Book Store và cho phép Book Store sử dụng thông tin của tôi khi hoàn tất thao tác này.</p>
-                       
-                        <button type="button" class="button btn-register" style="font-size:14px; font-weight:600;"><span><span>ĐĂNG KÝ</span></span>
+                        <p style="font-size: 13px">
+                            Tôi đồng ý với các
+                            <a
+                                href="{{ url('/quy-dinh-su-dung') }}"
+                                style="color: #03a9f4"
+                                >điều khoản sử dụng</a
+                            >
+                            của Book Store và cho phép Book Store sử dụng thông
+                            tin của tôi khi hoàn tất thao tác này.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="button btn-register"
+                            style="font-size: 14px; font-weight: 600"
+                        >
+                            <span><span>ĐĂNG KÝ</span></span>
                         </button>
                     </div>
                 </div>
@@ -55,72 +123,47 @@
 </div>
 
 <script type="text/javascript">
-    $('.btn-register').click(function(){
+    $(".btn-register").click(function () {
         var form_data = new FormData();
-        form_data.append("_token", '{{csrf_token()}}');
-        form_data.append("phone_number", $('#phone_number').val());
+        form_data.append("_token", "{{csrf_token()}}");
+        form_data.append("email", $("#email").val());
+        form_data.append("name", $("#name").val());
+        form_data.append("password", $("#password").val());
 
         $.ajax({
-            type : 'post',
-            url : '/register',
-            data : form_data,
-            dataType : 'json',
+            type: "post",
+            url: "/register",
+            data: form_data,
+            dataType: "json",
             contentType: false,
             processData: false,
-            success : function(response){
-				if(response.is === 'failed'){
-					$(".error-mesage").find("ul").html('');
-					$(".error-mesage").css('display','block');
-					$(".success-mesage").css('display','none');
-					$(".unsuccess-mesage").css('display','none');
+            success: function (response) {
+                if (response.is === "login-success") {
+                    setTimeout(function () {
+                        window.location.href = "/";
+                    }, 200);
+                }
+                if (response.is === "unsuccess") {
+                    $(".unsuccess-mesage").find("ul").html("");
+                    $(".unsuccess-mesage").css("display", "block");
+                    $(".error-mesage").css("display", "none");
+                    $(".success-mesage").css("display", "none");
 
-					$.each(response.error, function( key, value ) {
-						$(".error-mesage").find("ul").append('<li><i class="fa fa-exclamation-triangle"></i> '+value+'</li>');
-					});
+                    $(".unsuccess-mesage")
+                        .find("ul")
+                        .append(
+                            '<li><i class="fa fa-exclamation-triangle"></i> ' +
+                                response.uncomplete +
+                                "</li>"
+                        );
 
-					window.scroll({
-						top: 0,
-						behavior: 'smooth'
-					});
-				}
-				if(response.is === 'success'){
-					$(".success-mesage").find("ul").html('');
-					$(".success-mesage").css('display','block');
-					$(".error-mesage").css('display','none');
-
-					window.location.href="/confirm/otp";
-				}
-				if(response.is === 'unsuccess'){
-					$(".unsuccess-mesage").find("ul").html('');
-					$(".unsuccess-mesage").css('display','block');
-					$(".error-mesage").css('display','none');
-					$(".success-mesage").css('display','none');
-
-					$(".unsuccess-mesage").find("ul").append('<li><i class="fa fa-exclamation-triangle"></i> '+response.uncomplete+'</li>');
-
-					window.scroll({
-						top: 0,
-						behavior: 'smooth'
-					});
-				}
-                if(response.is === 'verifysms'){
-					$(".unsuccess-mesage").find("ul").html('');
-					$(".unsuccess-mesage").css('display','block');
-					$(".error-mesage").css('display','none');
-					$(".success-mesage").css('display','none');
-                    var url = 'https://';
-                    url += window.location.hostname;
-                    url += '/confirm/otp';
-					$(".unsuccess-mesage").find("ul").append('<li><i class="fa fa-exclamation-triangle"></i> '+response.uncomplete+' <a href=" '+url+' " style="color:#00ab9f; text-decoration:none;"> tại đây</a>.</li>');
-
-					window.scroll({
-						top: 0,
-						behavior: 'smooth'
-					});
-				}
-			}
+                    window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                    });
+                }
+            },
         });
     });
-    
 </script>
 @endsection

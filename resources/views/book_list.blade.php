@@ -7,6 +7,10 @@
 @endif 
 @endsection 
 
+@section('css')
+<link rel="stylesheet" href="{{asset('plugins/bootstrap-slider/slider.css')}}">
+@endsection
+
 @section('js')
 <script type="text/javascript" src="{{asset('home/js/jquery-ui.min.js')}}"></script>
 
@@ -411,7 +415,7 @@
 </div>
 
 @endif 
-<script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('bower_components/jquery/jquery.min.js')}}"></script>
 
 <script src="{{asset('plugins/bootstrap-slider/bootstrap-slider.js')}}"></script>
 <script>
@@ -463,46 +467,6 @@
   });
 </script>
 
-<script>    
-    $('.form-filllter').change(function(){
-        var pathologies_slug = [];
-        var pharmacologies_slug = [];
-        var facturers_slug = [];
-        var sortby = $(".sortby").val();
-
-        $("input[name='pathology']:checked").each(function() {
-            pathologies_slug.push($(this).val());
-        });
-
-        $("input[name='pharmacology']:checked").each(function() {
-            pharmacologies_slug.push($(this).val());
-        });
-
-        $("input[name='facturer']:checked").each(function() {
-            facturers_slug.push($(this).val());
-        });
-
-        var url = window.location.href.split('?')[0]+'?sortby='+sortby;
-
-        if(pharmacologies_slug.length > 0){
-            url += '&pharmacology=';
-            url += pharmacologies_slug.join(',');
-        }
-
-        if(pathologies_slug.length > 0){
-            url += '&pathology=';
-            url += pathologies_slug.join(',');
-        }
-
-        if(facturers_slug.length > 0){
-            url += '&brand=';
-            url += facturers_slug.join(',');
-        }
-
-        window.location.href = decodeURI(url);
-    });
-</script>
-
 <script>
     $('.btn-price-slider').click(function(){
         var pathologies_slug = [];
@@ -511,38 +475,11 @@
         var sortby = $(".sortby").val();
         var price_slider_amount = $("#price-slider-amount").val().split(",");
 
-        $("input[name='pathology']:checked").each(function() {
-            pathologies_slug.push($(this).val());
-        });
-
-        $("input[name='pharmacology']:checked").each(function() {
-            pharmacologies_slug.push($(this).val());
-        });
-
-        $("input[name='facturer']:checked").each(function() {
-            facturers_slug.push($(this).val());
-        });
-
         if(price_slider_amount.length > 0){
             var price_slider_amount = $("#price-slider-amount").val().split(",");
             var url = window.location.href.split('?')[0]+'?sortby='+sortby;
             url += '&min_price='+price_slider_amount[0];
             url += '&max_price='+price_slider_amount[1];
-        }
-
-        if(pharmacologies_slug.length > 0){
-            url += '&pharmacology=';
-            url += pharmacologies_slug.join(',');
-        }
-
-        if(pathologies_slug.length > 0){
-            url += '&pathology=';
-            url += pathologies_slug.join(',');
-        }
-
-        if(facturers_slug.length > 0){
-            url += '&brand=';
-            url += facturers_slug.join(',');
         }
 
         window.location.href = decodeURI(url);

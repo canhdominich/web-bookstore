@@ -12,13 +12,13 @@
     <meta name="author" content="HTMLCooker">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" type="image" href="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa.png')}}" />
+    <link rel="shortcut icon" type="image" href="{{asset('/images/icons/logo.png')}}" />
 
     <!-- ================= Google Fonts ================== -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Cloud Zoom CSS -->
     <!-- <link rel="stylesheet" type="text/css" href="css/em_cloudzoom.css" media="all" /> -->
@@ -114,7 +114,7 @@
                 <div id="em-mheader-top" class="row" style="background : #fff; margin-top: -10px;">
                     <div class="em-logo col-xs-14" style="margin-left: -20px; margin-bottom: -35px;">
                         <a href="{{ url('/') }}" class="logo">
-                            <img src="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa-text.png')}}"/>
+                            <img src="{{asset('/images/icons/logo-text.png')}}"/>
                         </a>
                     </div>
                     <div class="em-logo col-xs-10" style="margin-right: 0px;">
@@ -128,7 +128,7 @@
                     <div id="em-mheader-logo" class="col-xs-4">
                         <div class="em-logo">
                             <a href="{{ url('/') }}" class="logo">
-                                <img src="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa.png')}}"/>
+                                <img src="{{asset('/images/icons/logo.png')}}"/>
                             </a>
                         </div>
                     </div><!-- /#em-mheader-logo -->
@@ -222,7 +222,7 @@
                                             <ul style="margin-bottom: 0px !important;">
                                                 <li class=""> 
                                                     <a href="{{url('/')}}">    
-                                                        <img src="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa-text.png')}}" alt="" style="height: 115px; width: 320px; margin-bottom: -90px; margin-top: -30px; padding-left: -8px; margin-left: -35px;"> 
+                                                        <img src="{{asset('/images/icons/logo-text.png')}}" alt="" style="height: 115px; width: 320px; margin-bottom: -90px; margin-top: -30px; padding-left: -8px; margin-left: -35px;"> 
                                                     </a>
                                                 </li>
                                             </ul>
@@ -363,12 +363,12 @@
                                 <div class="col-sm-24">
                                     <div class="em-logo f-left" style="width : 85px; height : 75px; box-sizing : border-box;">
                                         <a href="/" class="logo">
-                                            <img class="retina-img" src="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa.png')}}" style="width : 100%; max-height : 75px;"/>
+                                            <img class="retina-img" src="{{asset('/images/icons/logo.png')}}" style="width : 100%; max-height : 75px;"/>
                                         </a>
                                     </div>
                                     <div class="em-logo-sticky f-left">
                                         <a href="/" class="logo">
-                                        <img class="retina-img" src="{{asset('/images/icons/logo-nha-thuoc-nhi-khoa.png')}}" style="width : 55px; height : 52px;"/>
+                                        <img class="retina-img" src="{{asset('/images/icons/logo.png')}}" style="width : 55px; height : 52px;"/>
                                         </a>
                                     </div>
                                     <div class="em-search em-search-sticky f-right">

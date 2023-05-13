@@ -1,6 +1,4 @@
-@extends('layouts.admin') 
-
-@section('content')
+@extends('layouts.admin') @section('content')
 <div style="margin-bottom: 30px; text-align: end">
     <a href="/admin/new/book" class="btn btn-info btn-add text-white"
         >Thêm sách</a
@@ -24,7 +22,8 @@
                                 <th class="col-sm-1 text-center">Giá bán</th>
                                 <th class="col-sm-1 text-center">Số lượng</th>
                                 <th class="col-sm-1 text-center">Đã bán</th>
-                                <th class="col-sm-2 text-center">Hành động</th>
+                                <th class="col-sm-1 text-center">Trạng thái</th>
+                                <th class="col-sm-1 text-center">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,6 +61,35 @@
                                 <td class="col-sm-1 text-center">
                                     {{$value->bought}}
                                 </td>
+                                <td class="col-sm-1 text-center">
+                                    @if($value->status == 1)
+                                    <button
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 2px;
+                                            border: 1px solid #fff;
+                                            text-transform: uppercase;
+                                            background: rgb(0, 168, 0);
+                                        "
+                                    >
+                                        Công khai
+                                    </button>
+                                    @else
+                                    <button
+                                        style="
+                                            color: #fff;
+                                            padding: 8px 20px;
+                                            border-radius: 2px;
+                                            border: 1px solid #fff;
+                                            text-transform: uppercase;
+                                            background: rgb(138, 137, 137);
+                                        "
+                                    >
+                                        Riêng tư
+                                    </button>
+                                    @endif
+                                </td>
                                 <td class="col-sm-2 text-center">
                                     <a
                                         href="/admin/book/{{$value->id}}"
@@ -98,9 +126,7 @@
         </div>
     </div>
 </div>
-@endsection('content') 
-
-@section('js')
+@endsection('content') @section('js')
 <script type="text/javascript">
     // show
     $(".btn-show").click(function () {

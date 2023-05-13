@@ -29,6 +29,9 @@
                                     <th class="col-sm-2 text-center">
                                         Tiến hàng giao hàng
                                     </th>
+                                    <th class="col-sm-2 text-center">
+                                        Huỷ đơn hàng
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,6 +75,23 @@
                                         </button>
                                         @endif
                                     </td>
+                                    <td class="col-sm-2 text-center">
+                                        @if($value->status == 0)
+                                        <button
+                                            data-id="{{$value->id}}"
+                                            type="button"
+                                            class="btn btn-danger btn-cancel"
+                                            style="
+                                                color: #fff;
+                                                padding: 8px 20px;
+                                                border-radius: 5px;
+                                                text-transform: uppercase;
+                                            "
+                                        >
+                                            Hủy
+                                        </button>
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach @endif
                             </tbody>
@@ -108,6 +128,25 @@
             setTimeout(function () {
                 window.location.href = "/admin/order_pending";
             }, 500);
+        });
+
+        // cancel
+        $(".btn-cancel").click(function () {
+            if (confirm("Bạn thực sự muốn hủy ?")) {
+                var _this = $(this);
+                var id = $(this).attr("data-id");
+                $.ajax({
+                    type: "put",
+                    url: "/admin/order/cancel/" + id,
+                    data: {
+                        _token: $('[name="_token"]').val(),
+                        id: id,
+                    },
+                    success: function (response) {
+                        _this.parent().parent().remove();
+                    },
+                });
+            }
         });
     </script>
     @endsection('js')

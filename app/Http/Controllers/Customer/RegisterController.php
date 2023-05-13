@@ -18,10 +18,12 @@ class RegisterController extends Controller
             [
                 'email' => 'required',
                 'name' => 'required',
-                'password' => 'required',
+                'password' => 'required|min:8|max:16',
             ],
             [
                 'required' => 'Lỗi: Vui lòng nhập các trường bắt buộc (*).',
+                'password.min' => 'Mật khẩu tối thiểu 8 kí tự',
+                'password.max' => 'Mật khẩu tối đa 16 kí tự',
             ]
         );
 
@@ -38,6 +40,7 @@ class RegisterController extends Controller
         $data['name'] = $request->name;
         $data['role'] = 'customer';
         $data['password'] = Hash::make($request->password);
+        $data['address'] = $request->address;
 
         $user = User::create($data);
 

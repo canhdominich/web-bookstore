@@ -65,7 +65,7 @@
                         <li class="fields">
                             <div class="field">
                                 <label for="name" class="required"
-                                    ><em>*</em>Name</label
+                                    ><em>*</em>Tên đăng nhập</label
                                 >
                                 <div class="input-box">
                                     <input
@@ -81,13 +81,27 @@
                         <li class="fields">
                             <div class="field">
                                 <label for="password" class="required"
-                                    ><em>*</em>Password</label
+                                    ><em>*</em>Mật khẩu</label
                                 >
                                 <div class="input-box">
                                     <input
-                                        type="text"
+                                        type="password"
                                         name="password"
                                         id="password"
+                                        class="input-text"
+                                    />
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="fields">
+                            <div class="field">
+                                <label for="address">Địa chỉ</label>
+                                <div class="input-box">
+                                    <input
+                                        type="text"
+                                        name="address"
+                                        id="address"
                                         class="input-text"
                                     />
                                 </div>
@@ -100,7 +114,7 @@
                         <p style="font-size: 13px">
                             Tôi đồng ý với các
                             <a
-                                href="{{ url('/quy-dinh-su-dung') }}"
+                                href="#"
                                 style="color: #03a9f4"
                                 >điều khoản sử dụng</a
                             >
@@ -129,6 +143,7 @@
         form_data.append("email", $("#email").val());
         form_data.append("name", $("#name").val());
         form_data.append("password", $("#password").val());
+        form_data.append("address", $("#address").val());
 
         $.ajax({
             type: "post",

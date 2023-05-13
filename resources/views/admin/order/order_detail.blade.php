@@ -1,6 +1,6 @@
 @extends('layouts.admin') @section('content')
 <section class="content" style="font-size: 14px;">
-  @if(isset($order) && isset($order_details))
+  @if(isset($order) && isset($orders_detail))
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="box">
@@ -66,8 +66,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                @if(isset($order_details))
-                  @foreach($order_details as $item)
+                @if(isset($orders_detail))
+                  @foreach($orders_detail as $item)
                   <tr>
                     <td>{{$item->name}}</td>
                     <td class="text-center">{{$item->code}}</td>

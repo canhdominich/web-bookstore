@@ -44,8 +44,8 @@ class OrderController extends Controller
     public function show($order_id)
     {
         $order = Order::where('order_id', $order_id)->first();
-        $order_details = OrderDetail::where('order_id', $order_id)->get();
-        return view('admin.order.order_detail', ['order' => $order, 'order_details' => $order_details]);
+        $orders_detail = OrderDetail::where('order_id', $order_id)->get();
+        return view('admin.order.order_detail', ['order' => $order, 'orders_detail' => $orders_detail]);
     }
 
     public function update(Request $request)
@@ -94,7 +94,7 @@ class OrderController extends Controller
         $data = $request->all();
         $order = Order::find($data['id']);
 
-        $books_order_detail = DB::table('order_details')
+        $books_order_detail = DB::table('orders_detail')
             ->where('order_id', $order->order_id)
             ->get();
 
@@ -112,7 +112,7 @@ class OrderController extends Controller
                 ]);
         }
 
-        DB::table('order_details')->where('order_id', $order->order_id)
+        DB::table('orders_detail')->where('order_id', $order->order_id)
             ->update([
                 'status' => 0
             ]);

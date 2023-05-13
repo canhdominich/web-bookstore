@@ -25,7 +25,7 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
+              <div class="brand-logo" style="text-align: center;">
                 <img src="{{ asset('assets/template/images/logo.png') }}" alt="logo">
               </div>
               <form class="pt-3">
@@ -48,18 +48,6 @@
                 </div>
                 <div class="mt-3 d-flex justify-content-center">
                   <a class="btn-login btn btn-info font-weight-medium" onClick='javascript:void(0)'>Đăng nhập</a>
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
                 </div>
               </form>
             </div>

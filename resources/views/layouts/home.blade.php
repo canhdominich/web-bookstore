@@ -513,12 +513,11 @@
                                                     <p class="h4 em-text-upercase"><span>Nhà sách</span>
                                                     </p>
                                                 </div>
-                                                <br>
                                                 <p style="color: #ffffff;">
-                                                    Cơ sở 1: Số 88 Tô Vĩnh Diện, Phường Khương Trung, Quận Thanh Xuân, Hà Nội
+                                                    Cơ sở 1: Tòa nhà Central Point, 219 Trung Kính, P. Yên Hòa, Q. Cầu Giấy, Hà Nội
                                                 </p>
                                                 <p style="color: #ffffff;">
-                                                    Cơ sở 2: Số 16, TT7A,  Khu đô thị mới Đại Kim, Phường Đại Kim, Quận Hoàng Mai, Hà Nội
+                                                    Cơ sở 2: Tòa nhà Emporium, 184 Lê Đại Hành, P. 15, Q. 11, TP. Hồ Chí Minh
                                                 </p>
                                             </div><!-- /.col-sm-4 -->
 

@@ -230,7 +230,7 @@
                         <i class="mdi mdi-settings text-primary"></i>
                         Cài đặt
                     </a>
-                    <a class="dropdown-item" href="{{ route('logout') }}">
+                    <a class="dropdown-item" href="/admin/logout">
                         <i class="mdi mdi-logout text-primary"></i>
                         {{ __("Đăng xuất") }}
                     </a>

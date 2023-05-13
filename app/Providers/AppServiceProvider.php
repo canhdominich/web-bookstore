@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(!App::runningInConsole()){
             View::share('list_categories', Category::orderBy('created_at', 'desc')->get());
-            View::share('list_books', Book::orderBy('created_at', 'desc')->get());
+            View::share('list_books', Book::orderBy('created_at', 'desc')->limit(20)->get());
         }
     }
 }

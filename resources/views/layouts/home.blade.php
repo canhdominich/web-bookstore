@@ -187,11 +187,6 @@
                         <div id="em-mheader-wrapper-menu"> <span class="visible-xs fa fa-bars" id="em-mheader-menu-icon"></span>
                             <div id="em-mheader-menu-content" style="display: none;">
                                 <div class="em-wrapper-top">
-                                    <div class="em-language-currency row">
-                                        <div class="col-sm-24">
-                                            
-                                        </div>
-                                    </div><!-- /.em-language-currency -->
                                     <div class="em-top-links row">
                                         <div class="">
                                             <ul class="top-header-link links">
@@ -226,49 +221,7 @@
                                         </div>
                                     </div><!-- /.em-top-links -->
                                 </div><!-- /.em-wrapper-top -->
-                                <div class="row mobile-main-menu toggle-menu">
-                                    <div class="col-sm-24">
-                                        <div class="em-top-menu">
-                                            <div class="em-menu-mobile">
-                                                <div class="megamenu-wrapper wrapper-7_5505">
-                                                    <div class="em_nav" id="toogle_menu_7_5505">
-                                                        <ul class="hnav em_menu_mobile">
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-list">
-                                                                <a class="em-menu-link" href="{{ url('/mua-thuoc-theo-don') }}"> <span style="text-transform: uppercase;"> Mua thuốc theo đơn </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-user-md">
-                                                                <a class="em-menu-link" href="{{ url('/bac-si-tu-van') }}"> <span style="text-transform: uppercase;"> Bác sĩ tư vấn </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-address-book-o">
-                                                                <a class="em-menu-link" href="{{ url('/goc-suc-khoe') }}"> <span style="text-transform: uppercase;"> Sức khỏe cho bé</span> </a>
-                                                            </li><!-- /.menu-item-link -->
-                                                            
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-medkit">
-                                                                <a class="em-menu-link" href="{{ url('/cua-hang/thuoc') }}"> <span style="text-transform: uppercase;"> Thuốc </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-dropbox">
-                                                                <a class="em-menu-link" href="{{ url('/cua-hang/thuc-pham-chuc-nang') }}"> <span style="text-transform: uppercase;"> Thực phẩm chức năng </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa fa-shopping-cart">
-                                                                <a class="em-menu-link" href="{{ url('/cua-hang/hang-tieu-dung') }}"> <span style="text-transform: uppercase;"> Hàng tiêu dùng </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-ambulance">
-                                                                <a class="em-menu-link" href="{{ url('/cua-hang/thiet-bi-y-te') }}"> <span style="text-transform: uppercase;"> Thiết bị y tế </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                </div><!-- /.megamenu-wrapper -->
-                                            </div>
-                                        </div><!-- /.em-top-menu -->
-                                    </div>
-                                </div><!-- /.mobile-main-menu -->
+                               
                                 
                             </div>
                         </div><!-- /.em-mheader-wrapper-menu -->
@@ -420,7 +373,7 @@
                         </div>
                     </div><!-- /.em-header-top -->
                     <div id="em-fixed-top"></div>
-                    <div class="em-header-bottom em-fixed-top" style="background : #0000FF;">
+                    <div class="em-header-bottom em-fixed-top" style="background : rgb(199, 226, 198);">
                         <div class="container em-menu-fix-pos">
                             <div class="row">
                                 <div class="col-sm-24">
@@ -485,14 +438,6 @@
                                                 <div class="megamenu-wrapper wrapper-4_7164">
                                                     <div class="em_nav" id="toogle_menu_4_7164">
                                                         <ul class="hnav em_hoz_menu effect-menu">
-                                                            <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                <a class="em-menu-link" href="{{ url('/mua-thuoc-theo-don') }}"> <span> Mua thuốc theo đơn </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
-                                                            <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                <a class="em-menu-link" href="{{ url('/bac-si-tu-van') }}"> <span> Bác sĩ tư vấn </span> </a>
-                                                            </li><!-- /.menu-item-link -->
-
                                                             <li class="menu-item-link menu-item-depth-0 hidden-sm hidden-md menu-item-parent">
                                                                 <a class="em-menu-link" href="{{ url('/goc-suc-khoe') }}"> <span> Sức khỏe cho bé </span> </a>
                                                                 <ul class="menu-container" style="dropdown-menu">
@@ -520,11 +465,11 @@
                                                             </li><!-- /.menu-item-link -->
 
                                                             <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                <a class="em-menu-link" href="{{ url('/gioi-thieu') }}"> <span> Giới thiệu </span> </a>
+                                                                <a class="em-menu-link" href="#"> <span> Giới thiệu </span> </a>
                                                             </li><!-- /.menu-item-link -->
 
                                                             <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                <a class="em-menu-link" href="{{ url('/lien-he') }}"> <span> Liên hệ </span> </a>
+                                                                <a class="em-menu-link" href="#"> <span> Liên hệ </span> </a>
                                                             </li><!-- /.menu-item-link -->
 
                                                         </ul><!-- /.hnav em_hoz_menu -->

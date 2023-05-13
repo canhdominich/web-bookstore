@@ -16,7 +16,7 @@ Book Store
         </a>
         <div class="em-banner-right">
             <h5><a href="javascript:void(0)">Cam kết sản phẩm</a></h5>
-            <p style="font-size : 13px;">Sản phẩm chính hãng, nguồn gốc rõ ràng</p>
+            <p style="font-size : 13px;">Sản phẩm chất lượng, nguồn gốc rõ ràng</p>
         </div>
     </div>
     <div class="text-box col-sm-8">
@@ -24,8 +24,8 @@ Book Store
             <em class="fa fa-fw"><i class="fa fa-user-md"></i></em>
         </a>
         <div class="em-banner-right">
-            <h5><a title="Free shipping all order" href="javascript:void(0)">Tư vấn</a></h5>
-            <p style="font-size : 13px;">Số lượng đầu sách chuyên môn cao, tư vấn tận tình</p>
+            <h5><a title="Free shipping all order" href="javascript:void(0)">Mẫu mã</a></h5>
+            <p style="font-size : 13px;">Số lượng đầu sách đa dạng, cập nhật liên tục</p>
         </div>
     </div>
     <div class="text-box col-sm-8">
@@ -66,28 +66,10 @@ Book Store
             <div class="em-new-arrivals-tabs em-line-01">
                 <div class="emtabs-ajaxblock-loaded">
                     <div class="em-tabs-widget tabs-widget ">
-                        <div class="widget-title em-widget-title" style="margin-top : 50px;">
-                            <h3 class="hidden-xs" style="color : #555;"><span>Danh mục sản phẩm</span></h3>
+                        <div class="widget-title em-widget-title" style="margin-top : 50px; margin-bottom : 50px; text-align: center;">
+                            <h3 class="hidden-xs" style="color : #555;"><span>Sản phẩm nổi bật</span></h3>
                         </div>
                         <div id="emtabs_1" class="em-tabs emtabs r-tabs">
-                            <ul class="em-tabs-control tabs-control r-tabs-nav">
-                                <li class="r-tabs-tab r-tabs-state-active">
-                                    <a class="r-tabs-anchor active" href="#tab_emtabs_1_1" style="text-transform: uppercase;"> <span class="icon"></span>Thuốc</a>
-                                </li>
-
-                                <li class="r-tabs-state-default r-tabs-tab">
-                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_2" style="text-transform: uppercase;"> <span class="icon"></span>Thực phẩm chức năng</a>
-                                </li>
-
-                                <li class="r-tabs-state-default r-tabs-tab">
-                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_3" style="text-transform: uppercase;"> <span class="icon"></span>Hàng tiêu dùng</a>
-                                </li>
-
-                                <li class="r-tabs-state-default r-tabs-tab">
-                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_4" style="text-transform: uppercase;"> <span class="icon"></span>Thiết bị y tế</a>
-                                </li>
-                            </ul>
-                            
                             <div class="em-tabs-content tab-content">
                                 <div id="tab_emtabs_1_1" class="tab-pane tab-item content_tab_emtabs_1_1 r-tabs-panel r-tabs-state-active">
                                     <div class="wrapper button-show01 button-hide-text em-wrapper-loaded">
@@ -251,15 +233,7 @@ Book Store
                                                                             @endif
                                                                         </div><!-- item -->
                                                                     @endforeach
-                                                                    <div class="" style="margin-right: 10px;">
-                                                                        <a href="{{url('/cua-hang/thuoc')}}">
-                                                                            <button class="button" style="float: right !important;">
-                                                                                <span><span>Xem thêm</span></span>
-                                                                            </button>
-                                                                        </a>
-                                                                    </div>
                                                                 @endif
-
                                                             </div><!-- /.products-grid -->
                                                         </div><!-- /.emcatalog-desktop-4 -->
                                                     </div><!-- /.widget-products -->
@@ -920,10 +894,7 @@ Book Store
 @section('feature')
 <div class="col-sm-24  text-center">
     <h3 class="section-title section-title-center" style="text-align: center; text-transform: uppercase; color : #555;">
-    <b></b>
     <span class="section-title-main">Chúng tôi có gì?</span>
-    <b></b>
-    <br>
 </div>
 <div class="em-wrapper-ads-09">
     <div class="row">
@@ -953,7 +924,7 @@ Book Store
                 </p>
                 <div class="em-ads-content">
                     <h4 class="primary em-text-upercase">Giao hàng cực nhanh</h4>
-                    <p>Miễn phí giao hàng cho những đơn hàng đạt đủ điều kiện và nhận hàng nhanh chóng</p>
+                    <p>Miễn phí giao hàng cho những đơn hàng đạt đủ điều kiện</p>
                 </div>
             </div>
         </div><!-- /.em-wrapper-ads-item -->

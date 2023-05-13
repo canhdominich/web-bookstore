@@ -119,7 +119,7 @@
                                                                     <li class="wide">
                                                                         <label for="phone" class="required">Số điện thoại</label>
                                                                         <div class="input-box">
-                                                                            <input type="text" name="email" id="getPhone" class="input-text" value="{{ old('phone') }}"/>
+                                                                            <input type="text" name="phone" id="getPhone" class="input-text" value="{{ old('phone') }}"/>
                                                                         </div>
                                                                     </li>
                                                                     <li class="wide">
@@ -140,6 +140,8 @@
                                                                             <textarea name="note" class="form-control" id="getNote" style="width: 100%; height : 100px;" value="{{ old('note') }}"></textarea><br>
                                                                         </div>
                                                                     </li>
+                                                                    <input id="getAmount" type="hidden" name="amount" value="{{$subtotal}}" class="form-control"> 
+                                                                    <input id="getOrderId" type="hidden" name="order_id" value="{{$order_id}}" class="form-control"> 
                                                                 </ul>
                                                             </fieldset>
                                                         </li>

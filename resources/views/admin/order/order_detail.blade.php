@@ -1,74 +1,68 @@
 @extends('layouts.admin') @section('content')
-<section class="content">
+<section class="content" style="font-size: 14px;">
   @if(isset($order) && isset($order_details))
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">Thông tin đơn hàng</h3>
+					<h4>Thông tin đơn hàng</h4>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
 					<!-- title row -->
           <div class="row">
             <div class="col-xs-12">
-              <h2 class="page-header">
-                <i class="fa fa-globe"></i>  Pharma Kids
+              <h4 class="page-header">
+                <i class="fa fa-globe"></i>
                 <small class="pull-right">
                 Date : 
                   @if(isset($order))
                   {{$order->created_at}}<br>
                   @endif
                 </small>
-              </h2>
+              </h4>
             </div>
             <!-- /.col -->
           </div>
           <!-- info row -->
           <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
-              From
-              <address>
-                <strong>Ban quản lý</strong><br>
-                Nhà thuốc Nhi Khoa<br>
-                Điện thoại:  0704.665.668 hoặc 0989.999.911<br>
-                Email:  nhathuocnhikhoa@gmail.com
-              </address>
+              <p style="font-weight: 600;">FROM:</p>
+              <p>Ban quản lý</p>
+              <p>Email:  bookstore@gmail.com</p>
             </div>
             <!-- /.col -->
             <div class="col-sm-4 invoice-col">
-              To
-              <address>
-                @if(isset($order))
-                <strong>{{$order->name}}</strong><br>
-                {{$order->address}}<br>
-                Điện thoại: {{$order->phone}}<br>
-                Email: {{$order->email}}
-                @endif
-              </address>
+              <p style="font-weight: 600;">TO:</p>
+              @if(isset($order))
+              <p>{{$order->name}}</p>
+              <p>Địa chỉ: {{$order->address}}</p>
+              <p>Điện thoại: {{$order->phone}}</p>
+              <p>Email: {{$order->email}}</p>
+              @endif
             </div>
             <!-- /.col -->
             <div class="col-sm-4 invoice-col">
               <br>
-              <b>Mã đơn hàng:</b> @if(isset($order)) {{$order->order_id}} @endif<br>
+              <b>Mã đơn hàng: #</b> @if(isset($order)) {{$order->order_id}} @endif<br>
             </div>
             <!-- /.col -->
           </div>
           <!-- /.row -->
 
           <!-- Table row -->
-          <div class="row">
+          <div class="row mt-4">
             <div class="col-xs-12 table-responsive">
               <table class="table table-striped">
                 <thead>
                   <tr>
                     <th>Sản phẩm</th>
-                    <th>Mã sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Giá gốc (VNĐ)</th>
-                    <th>Giá bán (VNĐ)</th>
-                    <th>Giảm (%)</th>
-                    <th>Tạm tính (VNĐ)</th>
+                    <th class="text-center">Mã sản phẩm</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-center">Giá gốc (VNĐ)</th>
+                    <th class="text-center">Giá bán (VNĐ)</th>
+                    <th class="text-center">Giảm (%)</th>
+                    <th class="text-center">Tạm tính (VNĐ)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -76,12 +70,12 @@
                   @foreach($order_details as $item)
                   <tr>
                     <td>{{$item->name}}</td>
-                    <td>{{$item->code}}</td>
-                    <td>{{$item->quantity}}</td>
-                    <td>{{number_format($item->price*1000 ,0 ,'.' ,'.')}}</td>
-                    <td>{{number_format($item->price_sale*1000 ,0 ,'.' ,'.')}}</td>
-                    <td>{{floor(($item->price - $item->price_sale)/($item->price)*100)}}%</td>
-                    <td>{{number_format($item->price_sale*$item->quantity*1000 ,0 ,'.' ,'.')}}</td>
+                    <td class="text-center">{{$item->code}}</td>
+                    <td class="text-center">{{$item->quantity}}</td>
+                    <td class="text-center">{{number_format($item->price*1000 ,0 ,'.' ,'.')}}</td>
+                    <td class="text-center">{{number_format($item->price_sale*1000 ,0 ,'.' ,'.')}}</td>
+                    <td class="text-center">{{floor(($item->price - $item->price_sale)/($item->price)*100)}}%</td>
+                    <td class="text-center">{{number_format($item->price_sale*$item->quantity*1000 ,0 ,'.' ,'.')}}</td>
                   </tr>
                   @endforeach
                 @endif
@@ -102,24 +96,7 @@
                   </a>
                 </div>
             </div>
-            <!-- accepted payments column -->
-            <div class="col-xs-4" style="box-sizing : border-box">
-              <p class="lead">Phương thức thanh toán (Hỗ trợ)</p>
-              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Thanh toán bằng tiền mặt khi giao hàng
-              </p>
-              <p class="lead">Phương thức thanh toán (Chưa hỗ trợ)</p>
-              <img src="../../dist/img/credit/visa.png" alt="Visa">
-              <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-              <img src="../../dist/img/credit/american-express.png" alt="American Express">
-              <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
-
-              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Thanh toán điện tử qua cổng thanh toán Ngân lượng
-              </p>
-
-            </div>
-            <!-- /.col -->
+           
             <div class="col-xs-4">
 
               <div class="table-responsive">
@@ -156,22 +133,6 @@
                     <!-- /.row -->
           @else
           <div class="row">
-            <!-- accepted payments column -->
-            <div class="col-xs-6">
-              <p class="lead">Phương thức thanh toán (Hỗ trợ)</p>
-              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Thanh toán bằng tiền mặt khi giao hàng
-              </p>
-              <p class="lead">Phương thức thanh toán (Chưa hỗ trợ)</p>
-              <img src="../../dist/img/credit/visa.png" alt="Visa">
-              <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-              <img src="../../dist/img/credit/american-express.png" alt="American Express">
-              <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
-
-              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Thanh toán điện tử qua cổng thanh toán Ngân lượng
-              </p>
-            </div>
             <!-- /.col -->
             <div class="col-xs-6">
 
@@ -208,18 +169,6 @@
           </div>
           <!-- /.row -->
           @endif
-
-          <!-- this row will not appear when printing -->
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a href="javascript:void(0)" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
-              </button>
-              <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                <i class="fa fa-download"></i> Generate PDF
-              </button>
-            </div>
-          </div>
         </div>
         <!-- /.box-body -->
       </div>

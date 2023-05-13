@@ -1,45 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Oki</p>
-
-</body>
-</html>
-<!-- @extends('layouts.admin') 
-
-@section('content')
+@extends('layouts.admin') @section('content')
 <div class="row">
+    @csrf
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">
-                    Thêm danh mục
-                </h4>
-                <form
-                    class="forms-sample"
-                    onsubmit="submitForm(event)"
-                >
+                <h4 class="card-title">Thêm danh mục</h4>
+                <form class="forms-sample" onsubmit="submitForm(event)">
                     <div class="form-group">
-                        <label for="name"
-                            >Tên danh mục</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="name"
-                        />
+                        <label for="name">Tên danh mục</label>
+                        <input type="text" class="form-control" id="name" />
                     </div>
 
                     <div class="form-group">
-                        <label for="name"
-                            >Mô tả</label
-                        >
+                        <label for="name">Mô tả</label>
                         <input
                             type="text"
                             class="form-control"
@@ -52,9 +25,7 @@
                     >
                         Thêm mới
                     </button>
-                    <a
-                        href="/admin/category"
-                        class="btn btn-danger text-white"
+                    <a href="/admin/category" class="btn btn-danger text-white"
                         >Hủy</a
                     >
                 </form>
@@ -62,9 +33,7 @@
         </div>
     </div>
 </div>
-@endsection('content')
-
-@section('js')
+@endsection('content') @section('js')
 <script type="text/javascript">
     function submitForm(event) {
         event.preventDefault();
@@ -124,4 +93,3 @@
     });
 </script>
 @endsection('js')
- -->

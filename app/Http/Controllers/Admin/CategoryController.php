@@ -76,10 +76,6 @@ class CategoryController extends Controller
         return response()->json(['is' => 'unsuccess', 'uncomplete' => 'Danh mục chưa được cập nhật']);
     }
 
-    public function update(Request $request)
-    {
-    }
-
     public function destroy($id)
     {
         return Category::findOrFail($id)->delete();

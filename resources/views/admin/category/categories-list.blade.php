@@ -5,6 +5,7 @@
     >
 </div>
 <div class="row">
+    @csrf
     <div class="col-md-12 stretch-card">
         <div class="card">
             <div class="card-body">

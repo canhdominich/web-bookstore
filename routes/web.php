@@ -17,6 +17,7 @@ use App\Http\Controllers\AuthAdmin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UserController;
 
 use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\Customer\CheckoutController;
@@ -34,43 +35,20 @@ Auth::routes();
 Route::get('/', function () {
     return view('home');
 });
-
 // login
 Route::get('/login', function () {
     return view('login');
 });
-
 // logout
 Route::get('/logout', [CustomerLogoutController::class, 'logout']);
-
-// singin
+// login
 Route::post('/login', [CustomerLoginController::class, 'postLogin']);
-
 // singup
 Route::get('/register', function () {
     return view('register');
 });
 
 Route::post('/register', [RegisterController::class, 'register']);
-
-// // xac minh so dien thoai
-// Route::get('/confirm/otp', 'Customer\RegisterController@formConfirmOtp');
-// Route::post('/confirm/otp', 'Customer\RegisterController@confirmOtp');
-// // gui lai ma otp 
-// Route::get('/resend/otp', 'Customer\RegisterController@resendOtp');
-
-// // cap nhat thong tin
-// Route::get('/fulfill/information', 'Customer\RegisterController@fulfill');
-
-// // tao tai khoan
-// Route::post('/create/account', 'Customer\RegisterController@createAccount');
-
-// // quen mat khau
-// Route::get('/forgot/password', 'Customer\ForgotPasswordController@formForgotPassword');
-// Route::post('/cofirm/phone', 'Customer\ForgotPasswordController@confirmPhone');
-// // xac minh so dien thoai trong quen mat khau
-// Route::get('/forgot/password/confirm/otp', 'Customer\ForgotPasswordController@formConfirmOtp');
-// Route::post('/forgot/password/confirm/otp', 'Customer\ForgotPasswordController@confirmOtp');
 
 
 // cart
@@ -141,6 +119,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/new/book', function () {
         return view('admin.book.new-book');
     });
+
+    // users
+    Route::resource('user', UserController::class);
+    Route::post('/update-user', [UserController::class, 'edit']);
 
     // orders
     Route::get('/order', [OrderController::class, 'index']);

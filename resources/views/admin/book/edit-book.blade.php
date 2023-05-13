@@ -1,168 +1,169 @@
 @extends('layouts.admin') 
 @section('content')
 @if(isset($book))
-    <div class="row">
-        <div class="col-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Cập nhật sách</h4>
-                    <form class="forms-sample" onsubmit="submitForm(event)">
-                        @csrf
+<div class="row">
+    @csrf
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Cập nhật sách</h4>
+                <form class="forms-sample" onsubmit="submitForm(event)">
+                    @csrf
+                    <input
+                        name="id"
+                        type="hidden"
+                        class="form-control"
+                        id="bookId"
+                        value="{{$book->id}}"
+                    />
+                    <div class="form-group">
+                        <label for="name">Tên sách</label>
                         <input
-                            name="id"
-                            type="hidden"
+                            type="text"
                             class="form-control"
-                            id="bookId"
-                            value="{{$book->id}}"
+                            id="name"
+                            value="{{$book->name}}"
                         />
-                        <div class="form-group">
-                            <label for="name">Tên sách</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="code">Mã</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="code"
+                            value="{{{$book->code}}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Danh mục</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="categoryId"
+                            value="{{$book->category_id}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hình ảnh</label>
+                        <div class="text-center">
+                            <img
+                                style="
+                                    width: 100px;
+                                    height: 200px;
+                                    border-radius: 0;
+                                "
+                                src="{{url('images/books/'.$book->image)}}"
+                                alt=" text-center"
+                            />
+                        </div>
+                        <input
+                            type="file"
+                            name="img[]"
+                            class="file-upload-default"
+                        />
+                        <div class="input-group col-xs-12">
                             <input
                                 type="text"
-                                class="form-control"
-                                id="name"
-                                value="{{$book->name}}"
+                                class="form-control file-upload-info"
+                                disabled
+                                placeholder="Cập nhật ảnh bìa"
                             />
+                            <span class="input-group-append">
+                                <button
+                                    class="file-upload-browse btn btn-primary text-white"
+                                    type="button"
+                                >
+                                    Cập nhật ảnh bìa
+                                </button>
+                            </span>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="code">Mã</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="code"
-                                value="{{{$book->code}}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category">Danh mục</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="categoryId"
-                                value="{{$book->category_id}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <div class="text-center">
-                                <img
-                                    style="
-                                        width: 100px;
-                                        height: 200px;
-                                        border-radius: 0;
-                                    "
-                                    src="{{url('images/books/'.$book->image)}}"
-                                    alt=" text-center"
-                                />
-                            </div>
-                            <input
-                                type="file"
-                                name="img[]"
-                                class="file-upload-default"
-                            />
-                            <div class="input-group col-xs-12">
-                                <input
-                                    type="text"
-                                    class="form-control file-upload-info"
-                                    disabled
-                                    placeholder="Cập nhật ảnh bìa"
-                                />
-                                <span class="input-group-append">
-                                    <button
-                                        class="file-upload-browse btn btn-primary text-white"
-                                        type="button"
-                                    >
-                                        Cập nhật ảnh bìa
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">Mô tả</label>
-                            <textarea
-                                class="form-control"
-                                rows="10"
-                                id="description"
-                            >
-                            {!! $book->description !!}
-                            </textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="author">Tác giả</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="author"
-                                value="{{$book->author}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="price">Giá gốc</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="price"
-                                value="{{$book->price}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="priceSale">Giá bán</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="priceSale"
-                                value="{{$book->price_sale}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="quantity">Số lượng</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="quantity"
-                                value="{{$book->quantity}}"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="status">Trạng thái</label>
-                            <select
-                                name="status"
-                                class="form-control form-control form-control-lg"
-                                id="status"
-                            >
-                                @if($book->status)
-                                <option value="1" selected>Công khai</option>
-                                <option value="0">Riêng tư</option>
-                                @else
-                                <option value="1">Công khai</option>
-                                <option value="0" selected>Riêng tư</option>
-                                @endif</select
-                            ><br />
-                        </div>
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary me-2 text-white btn-save"
+                    <div class="form-group">
+                        <label for="description">Mô tả</label>
+                        <textarea
+                            class="form-control"
+                            rows="10"
+                            id="description"
                         >
-                            Cập nhật
-                        </button>
-                        <a href="/admin/book" class="btn btn-danger text-white"
-                            >Hủy</a
+                        {!! $book->description !!}
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Tác giả</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="author"
+                            value="{{$book->author}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Giá gốc</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="price"
+                            value="{{$book->price}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priceSale">Giá bán</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="priceSale"
+                            value="{{$book->price_sale}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Số lượng</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="quantity"
+                            value="{{$book->quantity}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Trạng thái</label>
+                        <select
+                            name="status"
+                            class="form-control form-control form-control-lg"
+                            id="status"
                         >
-                    </form>
-                </div>
+                            @if($book->status)
+                            <option value="1" selected>Công khai</option>
+                            <option value="0">Riêng tư</option>
+                            @else
+                            <option value="1">Công khai</option>
+                            <option value="0" selected>Riêng tư</option>
+                            @endif</select
+                        ><br />
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary me-2 text-white btn-save"
+                    >
+                        Cập nhật
+                    </button>
+                    <a href="/admin/book" class="btn btn-danger text-white"
+                        >Hủy</a
+                    >
+                </form>
             </div>
         </div>
     </div>
+</div>
 @endif 
 @endsection('content')
 

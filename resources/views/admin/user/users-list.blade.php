@@ -1,70 +1,50 @@
-@extends('layouts.admin') 
-
-@section('content')
-<div style="margin-bottom: 30px; text-align: end">
-    <a href="/admin/new/book" class="btn btn-info btn-add text-white"
-        >Thêm sách</a
-    >
-</div>
+@extends('layouts.admin') @section('content')
 <div class="row">
     @csrf
     <div class="col-md-12 stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Danh sách đầu sách</p>
+                <p class="card-title">Danh sách người dùng</p>
                 <div class="table-responsive">
                     <table id="recent-purchases-listing" class="table">
                         <thead>
                             <tr>
-                                <th class="col-sm-1 text-center">#</th>
-                                <th class="col-sm-2 text-center">Tên sách</th>
-                                <th class="col-sm-2 text-center">Ảnh bìa</th>
-                                <th class="col-sm-1 text-center">Tác giả</th>
-                                <th class="col-sm-1 text-center">Giá</th>
-                                <th class="col-sm-1 text-center">Giá bán</th>
-                                <th class="col-sm-1 text-center">Số lượng</th>
-                                <th class="col-sm-1 text-center">Đã bán</th>
+                                <th class="col-sm-2 text-center">#</th>
+                                <th class="col-sm-2 text-center">
+                                    Tên người dùng
+                                </th>
+                                <th class="col-sm-2 text-center">
+                                    Email
+                                </th>
+                                <th class="col-sm-2 text-center">
+                                    Địa chỉ
+                                </th>
+                                <th class="col-sm-2 text-center">Ngày tạo</th>
                                 <th class="col-sm-2 text-center">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if(isset($books)) @foreach ($books as $value)
+                            @if(isset($users)) @foreach ($users as
+                            $value)
                             <tr>
-                                <td class="col-sm-1 text-center">
+                                <td class="col-sm-2 text-center">
                                     {{$value->id}}
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     {{$value->name}}
                                 </td>
                                 <td class="col-sm-2 text-center">
-                                    <img
-                                        style="
-                                            width: 100px;
-                                            height: 200px;
-                                            border-radius: 0;
-                                        "
-                                        src="{{url('images/books/'.$value->image)}}"
-                                        alt=" text-center"
-                                    />
+                                    {{$value->email}}
                                 </td>
-                                <td class="col-sm-1 text-center">
-                                    {{$value->author}}
+                                <td class="col-sm-2 text-center">
+                                    {{$value->address}}
                                 </td>
-                                <td class="col-sm-1 text-center">
-                                    {{$value->price}}
-                                </td>
-                                <td class="col-sm-1 text-center">
-                                    {{$value->price_sale}}
-                                </td>
-                                <td class="col-sm-1 text-center">
-                                    {{$value->quantity}}
-                                </td>
-                                <td class="col-sm-1 text-center">
-                                    {{$value->bought}}
+                                <td class="col-sm-2 text-center">
+                                    {{$value->created_at}}
                                 </td>
                                 <td class="col-sm-2 text-center">
                                     <a
-                                        href="/admin/book/{{$value->id}}"
+                                        href="/admin/user/{{$value->id}}"
                                         class="btn btn-warning btn-edit"
                                     >
                                         <i
@@ -98,25 +78,24 @@
         </div>
     </div>
 </div>
-@endsection('content') 
 
-@section('js')
+@endsection @section('js')
 <script type="text/javascript">
     // show
     $(".btn-show").click(function () {
         var id = $(this).attr("data-id");
         $.ajax({
             type: "get",
-            url: "/admin/book/" + id,
+            url: "/admin/user/" + id,
             data: {
                 _token: $('[name="_token"]').val(),
             },
             success: function (response) {
                 $("#showName").val(response.name),
                     $("#showPrice").val(response.price),
-                    $("#showImage").attr(
+                    $("#showThumbnail").attr(
                         "src",
-                        "/images/categories/" + response.image
+                        "/images/users/" + response.thumbnail
                     ),
                     $("#showExpirationPeriod").val(response.expiration_period),
                     $("#showDescription").val(response.description),
@@ -125,14 +104,14 @@
             },
         });
 
-        $("#showCategory").modal("show");
+        $("#showUser").modal("show");
     });
 
     $(".btn-edit").click(function () {
         var id = $(this).attr("data-id");
         $.ajax({
             type: "get",
-            url: "/admin/book/" + id,
+            url: "/admin/user/" + id,
             data: {
                 _token: $('[name="_token"]').val(),
             },
@@ -141,9 +120,9 @@
                     $("#editName").val(response.name),
                     $("#editPriceId").val(response.price),
                     $("#editExpirationPeriod").val(response.expiration_period),
-                    $("#image").attr(
+                    $("#Thumbnail").attr(
                         "src",
-                        "/images/categories/" + response.image
+                        "/images/users/" + response.thumbnail
                     ),
                     $("#editSlug").val(response.slug),
                     $("#editDescription").val(response.description);
@@ -161,7 +140,7 @@
         form_data.append("name", $("#editName").val());
         form_data.append("price", $("#editPriceId").val());
         form_data.append("expiration_period", $("#editExpirationPeriod").val());
-        form_data.append("image", $("input[type=file]")[0].files[0]);
+        form_data.append("thumbnail", $("input[type=file]")[0].files[0]);
         form_data.append("description", $("#editDescription").val());
 
         $.ajax({
@@ -196,7 +175,7 @@
                     });
 
                     setTimeout(function () {
-                        window.location.href = "/admin/book/";
+                        window.location.href = "/admin/user/";
                     }, 1000);
                 }
                 if (response.is === "unsuccess") {
@@ -220,7 +199,7 @@
             var id = $(this).attr("data-id");
             $.ajax({
                 type: "delete",
-                url: "/admin/book/" + id,
+                url: "/admin/user/" + id,
                 data: {
                     _token: $('[name="_token"]').val(),
                 },

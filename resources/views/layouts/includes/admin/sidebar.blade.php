@@ -56,8 +56,7 @@
             </a>
             <div class="collapse" id="users_menu">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Thêm người dùng</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Danh sách người dùng</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/user') }}">Danh sách người dùng</a></li>
                 </ul>
             </div>
         </li>

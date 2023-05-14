@@ -45,9 +45,8 @@ class ChangePasswordController extends Controller
         $id = Auth::user()->id;
         $password = DB::table('users')->find($id)->password;
         if(Hash::check($old_pass,$password)) {
-            $check = DB::table('users')->where('id', $id)->update(['password'=>bcrypt($new_pass)]);
+            DB::table('users')->where('id', $id)->update(['password'=>bcrypt($new_pass)]);
             $ck_user = User::find(Auth::user()->id);
-            $ck_user->flag = 0;
             $ck_user->save();
             Auth::logout();
             return response()->json(['is' => 'success', 'complete'=>'Đổi mật khẩu thành công. Mời quý khách hàng đăng nhập lại!']);

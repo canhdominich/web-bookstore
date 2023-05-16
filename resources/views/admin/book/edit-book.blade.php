@@ -1,6 +1,4 @@
-@extends('layouts.admin') 
-@section('content')
-@if(isset($book))
+@extends('layouts.admin') @section('content') @if(isset($book))
 <div class="row">
     @csrf
     <div class="col-12 grid-margin stretch-card">
@@ -38,12 +36,22 @@
 
                     <div class="form-group">
                         <label for="category">Danh mục</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="categoryId"
-                            value="{{$book->category_id}}"
-                        />
+                        <select
+                            id="category"
+                            class="form-control form-control-lg"
+                        >
+                            @if(isset($list_categories))
+                            @foreach($list_categories as $value)
+                            @if($book->category_id == $value->id)
+                            <option selected value="{{ $value->id }}">
+                                {{ $value->name }}
+                            </option>
+                            @else
+                            <option value="{{ $value->id }}">
+                                {{ $value->name }}
+                            </option>
+                            @endif @endforeach @endif</select
+                        ><br />
                     </div>
 
                     <div class="form-group">
@@ -106,7 +114,7 @@
                     <div class="form-group">
                         <label for="price">Giá gốc</label>
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="price"
                             value="{{$book->price}}"
@@ -116,7 +124,7 @@
                     <div class="form-group">
                         <label for="priceSale">Giá bán</label>
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="priceSale"
                             value="{{$book->price_sale}}"
@@ -126,7 +134,7 @@
                     <div class="form-group">
                         <label for="quantity">Số lượng</label>
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="quantity"
                             value="{{$book->quantity}}"
@@ -137,7 +145,7 @@
                         <label for="status">Trạng thái</label>
                         <select
                             name="status"
-                            class="form-control form-control form-control-lg"
+                            class="form-control form-control-lg"
                             id="status"
                         >
                             @if($book->status)
@@ -164,10 +172,7 @@
         </div>
     </div>
 </div>
-@endif 
-@endsection('content')
-
-@section('js')
+@endif @endsection('content') @section('js')
 <script src="{{ asset('assets/template/js/file-upload.js') }}"></script>
 <script type="text/javascript">
     function submitForm(event) {
@@ -181,7 +186,7 @@
         var code = $("#code").val();
         var author = $("#author").val();
         var description = $("#description").val();
-        var category_id = $("#categoryId").val();
+        var category_id = $("#category").val();
         var quantity = $("#quantity").val();
         var price = $("#price").val();
         var price_sale = $("#priceSale").val();

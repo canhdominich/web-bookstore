@@ -35,12 +35,12 @@
                         <label for="category"
                             >Danh mục</label
                         >
-                        <select id="category" class="form-control" style="width: 100%; margin-top: 0px;">
-								@if(isset($list_categories))
-									@foreach($list_categories as $value)
-										<option value="{{ $value->id }}">{{ $value->name }}</option>
-									@endforeach
-								@endif
+                        <select id="category" class="form-control form-control-lg">
+                            @if(isset($list_categories))
+                                @foreach($list_categories as $value)
+                                    <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                @endforeach
+                            @endif
 						</select><br>
                     </div>
 
@@ -77,11 +77,12 @@
                         <label for="description"
                             >Mô tả</label
                         >
-                        <input
-                            type="text"
+                        <textarea
                             class="form-control"
+                            rows="10"
                             id="description"
-                        />
+                        >
+                        </textarea>
                     </div>
 
                     <div class="form-group">
@@ -132,7 +133,7 @@
                         <label for="status"
                             >Trạng thái</label
                         >
-						<select class="form-control" id="status">
+						<select class="form-control form-control-lg" id="status">
 							<option value="1">Công khai</option>
 							<option value="0">Riêng tư</option>
 						</select><br>

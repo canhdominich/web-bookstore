@@ -35,11 +35,13 @@
                         <label for="category"
                             >Danh mục</label
                         >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="categoryId"
-                        />
+                        <select id="category" class="form-control" style="width: 100%; margin-top: 0px;">
+								@if(isset($list_categories))
+									@foreach($list_categories as $value)
+										<option value="{{ $value->id }}">{{ $value->name }}</option>
+									@endforeach
+								@endif
+						</select><br>
                     </div>
 
                     <div class="form-group">
@@ -98,7 +100,7 @@
                             >Giá gốc</label
                         >
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="price"
                         />
@@ -109,7 +111,7 @@
                             >Giá bán</label
                         >
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="priceSale"
                         />
@@ -120,7 +122,7 @@
                             >Số lượng</label
                         >
                         <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             id="quantity"
                         />
@@ -130,11 +132,10 @@
                         <label for="status"
                             >Trạng thái</label
                         >
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="status"
-                        />
+						<select class="form-control" id="status">
+							<option value="1">Công khai</option>
+							<option value="0">Riêng tư</option>
+						</select><br>
                     </div>
 
                     <button
@@ -168,7 +169,7 @@
         var code = $("#code").val();
         var author = $("#author").val();
         var description = $("#description").val();
-        var category_id = $("#categoryId").val();
+        var category_id = $("#category").val();
         var quantity = $("#quantity").val();
         var price = $("#price").val();
         var price_sale = $("#priceSale").val();
@@ -282,7 +283,7 @@
         form_data.append("quantity", +quantity);
         form_data.append("price_sale", +price_sale);
         form_data.append("price", +price);
-        form_data.append("status", status);
+        form_data.append("status", +status);
         $.ajax({
             type: "post",
             url: "/admin/book",

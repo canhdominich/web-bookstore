@@ -261,7 +261,7 @@
                     </div>
                     <div class="page-title" style="text-align: center; margin-top: 10px;">
                         <p style="font-size: 13px; color : #9c9c9c; font-weight: bold;">
-                            Checkout is not available whilst your cart is empty.
+                            Đặt hàng không thành công trong khi giỏ hàng trống.
                         </p>
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">

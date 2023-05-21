@@ -94,7 +94,7 @@
                                                 @endforeach
                                             </tbody>
 
-                                            <tfoot>
+                                            <!-- <tfoot>
                                                 <tr>
                                                     <td colspan="7" class="a-left">
                                                         <a href="{{ url('/') }}" class="button-continue">
@@ -106,7 +106,7 @@
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            </tfoot>
+                                            </tfoot> -->
                                         </table>
                                         @else
                                         <div class="page-title" style="text-align: center; margin-top: 10px;">
@@ -130,25 +130,7 @@
                             @if(isset($data))
                                 @if($data)
                                 <div class="cart-collaterals row">
-                                    <div class="first totals col-md-8 col-sm-24">
-                                        <form id="discount-coupon-form" method="post">
-                                            <div class="discount em-box-cart">
-                                                <div class="discount-form em-box">
-                                                    <label for="coupon_code">Nhập mã ưu đãi</label>
-                                                    <input type="hidden" name="remove" id="remove-coupone" value="0" />
-                                                    <div class="input-box">
-                                                        <input class="input-text" id="coupon_code" name="coupon_code" value="" />
-                                                    </div>
-                                                    <div class="buttons-set">
-                                                        <button type="button" class="button" onclick="discountForm.submit(false)" value="Apply Coupon">
-                                                            <span><span>Áp dụng</span></span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div><!-- /.col-sm-24 -->
-
+                                    
                                     <div class="last totals col-md-16 col-sm-24 right">
                                         <div class="em-box-cart">
                                             <div class="em-box">
@@ -160,45 +142,25 @@
                                                                 <p style="color : #111; width : 70%; text-align: right;">{{number_format($subtotal*1000 ,0 ,'.' ,'.')}} VND</p>
                                                             </td>
                                                         </tr>
-                                                        @if(isset($promotion))
-                                                            @if($subtotal >= $promotion->amount)
-                                                                <tr>
-                                                                    <td style="color : #696868; width : 30%;"> Chương trình khuyến mại : </td>
-                                                                    <td> 
-                                                                        <p style="color : #111; width : 70%; text-align: right;">{{$promotion->discount}} %</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="color : #111; font-weight : 600; width : 30%; font-size : 18px;"> Thành tiền : </td>
-                                                                    <td> 
-                                                                        <p style="color : #ea000f; width : 70%; text-align: right; font-size : 18px;">{{number_format(ceil(($subtotal - $subtotal*$promotion->discount/100))*1000 ,0 ,'.' ,'.')}} VND</p>
-                                                                        <p style="color : #696868; width : 70%; text-align: right; font-size : 14px;">(Đã bao gồm VAT) </p>
-                                                                    </td>
-                                                                </tr>
-                                                            @else
-                                                                <tr>
-                                                                    <td style="color : #111; font-weight : 600; width : 30%; font-size : 18px;"> Thành tiền : </td>
-                                                                    <td> 
-                                                                        <p style="color : #ea000f; width : 70%; text-align: right; font-size : 18px;">{{number_format($subtotal*1000 ,0 ,'.' ,'.')}} VND</p>
-                                                                        <p style="color : #696868; width : 70%; text-align: right; font-size : 14px;">(Đã bao gồm VAT) </p>
-                                                                    </td>
-                                                                </tr>
-                                                            @endif
-                                                        @else
-                                                            <tr>
-                                                                <td style="color : #111; font-weight : 600; width : 30%; font-size : 18px;"> Thành tiền : </td>
-                                                                <td> 
-                                                                    <p style="color : #ea000f; width : 70%; text-align: right; font-size : 18px;">{{number_format($subtotal*1000 ,0 ,'.' ,'.')}} VND</p>
-                                                                    <p style="color : #696868; width : 70%; text-align: right; font-size : 14px;">(Đã bao gồm VAT) </p>
-                                                                </td>
-                                                            </tr>
-                                                        @endif
+                                                        
+                                                        <tr>
+                                                            <td style="color : #111; font-weight : 600; width : 30%; font-size : 18px;"> Thành tiền : </td>
+                                                            <td> 
+                                                                <p style="color : #ea000f; width : 70%; text-align: right; font-size : 18px;">{{number_format($subtotal*1000 ,0 ,'.' ,'.')}} VND</p>
+                                                                <p style="color : #696868; width : 70%; text-align: right; font-size : 14px;">(Đã bao gồm VAT) </p>
+                                                            </td>
+                                                        </tr>
+                                                      
                                                     </tbody>
                                                 </table>
                                                 <ul class="checkout-types">
                                                     <li>
                                                         <button type="button" class="button btn-checkout" style="font-weight : 500;">
                                                             <span><span>Tiến hành đặt hàng</span></span>
+                                                        </button>
+
+                                                        <button onclick="redirectHome()" type="button" class="button-continue" style="font-weight : 500;width: 100%;height: 42px;">
+                                                            Tiếp tục mua hàng
                                                         </button>
                                                     </li>
                                                 </ul>
@@ -217,6 +179,10 @@
 </div><!-- /.em-wrapper-main -->
 
 <script type="text/javascript">
+    function redirectHome() {
+        location.replace("/")
+    }
+
     //increment
     $('.btn-increment').click(function(){
       var id = $(this).attr('data-id');

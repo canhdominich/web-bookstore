@@ -692,7 +692,6 @@
 </html>
 
 <script type="text/javascript" src="{{asset('js/fuse.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/searching-canhdominich.js')}}"></script>
 
 <script type="text/javascript">
     $('.mini-btn-login').click(function(){

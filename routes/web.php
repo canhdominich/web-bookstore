@@ -49,6 +49,9 @@ Route::get('/register', function () {
     return view('register');
 });
 
+// search
+Route::get('/search', [HomeController::class, 'search']);
+
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/danh-muc/{slug}', [CustomerBookController::class, 'index']);
 

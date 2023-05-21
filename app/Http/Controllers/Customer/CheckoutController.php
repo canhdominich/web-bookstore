@@ -73,16 +73,6 @@ class CheckoutController extends Controller
             $data['order_id'] = $request->order_id;
             $data['amount'] = $request->amount;
 
-            // upload anh don thuoc
-            $time = time();
-            if ($files = $request->file('image_prescriptions')) {
-                $destinationPath = 'images/prescriptions/'; // upload path
-                $time = time();
-                $fileName = $time . "" . date('YmdHis') . "" . $files->hashName();
-                $files->move($destinationPath, $fileName);
-                $data['image'] = $fileName;
-            }
-
             if ($request->user_id) {
                 $data['user_id'] = $request->user_id;
                 if ($request->score_awards == 1) {

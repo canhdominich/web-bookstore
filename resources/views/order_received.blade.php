@@ -10,7 +10,10 @@
         <div class="em-inner-main">
             <div class="em-main-container em-col2-left-layout">
                 @if(isset($order) && isset($order_detail) && isset($success))
-                    <div class="row">
+                    <div class="alert" style="background-color:#34e607; border-color: ##5bff47; color: #fffefe;">
+                        {{$success}}
+                    </div>
+                    <!-- <div class="row">
                         <div class="col-sm-14 em-col-main">
                             <div id="checkout-progress-wrapper">
                                 <div class="block block-progress opc-block-progress em-line-01">
@@ -113,15 +116,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.em-sidebar -->
-                    </div>
+                        </div>
+                    </div> -->
                 @else
                     <div style="text-align: center; margin-bottom: 50px; box-sizing : border-box;">
                         <img src="{{url('/images/shopping-cart/checkout-is-not-available.gif')}}" style="max-width : 300px;">
                     </div>
                     <div class="page-title" style="text-align: center; margin-top: 10px;">
                         <p style="font-size: 13px; color : #9c9c9c; font-weight: bold;">
-                            Checkout is not available whilst your cart is empty.
+                            Đặt hàng không thành công trong khi giỏ hàng trống.
                         </p>
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">

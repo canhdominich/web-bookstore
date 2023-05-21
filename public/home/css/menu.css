@@ -689,16 +689,6 @@ a.arrow span {
   /*margin-bottom:10px;*/
 }
 
-/* canhdominich add clearfix */
-.clearfix:after {
-  clear: both;
-  content: ".";
-  display: block;
-  height: 0;
-  line-height: 0;
-  visibility: hidden;
-}
-
 .all_categories .menuleftPerson{
   border: 1px solid #cdcdcd;
   padding: 13px 20px;

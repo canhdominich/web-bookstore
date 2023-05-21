@@ -1613,15 +1613,6 @@ a.arrow:before {
   border-color: #d4d4d4;
 }
 
-/* add canhdominich */
-.all_categories .menuleftPerson {
-  color: #ffffff;
-  font: 500 16px/1.35 'Roboto', sans-serif;
-  font-weight: 700;
-  background-color: #00ab9f;
-  border-color: #d4d4d4;
-}
-
 /* line 1213, theme.less */
 .menuleft .mega-menu {
   border-color: #e8e8e8;

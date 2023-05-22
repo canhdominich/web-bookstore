@@ -112,6 +112,78 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="publisher"
+                            >Nhà xuất bản</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="publisher"
+                            value="{{$book->publisher}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yearOfPublication"
+                            >Năm xuất bản</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="yearOfPublication"
+                            value="{{$book->yearOfPublication}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalPage"
+                            >Số trang</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="totalPage"
+                            value="{{$book->totalPage}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size"
+                            >Kích thước</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="size"
+                            value="{{$book->size}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supplier"
+                            >Nhà cung cấp</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="supplier"
+                            value="{{$book->supplier}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="typeCover"
+                            >Loại bìa</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="typeCover"
+                            value="{{$book->typeCover}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
                         <label for="price">Giá gốc</label>
                         <input
                             type="number"
@@ -191,6 +263,12 @@
         var price = $("#price").val();
         var price_sale = $("#priceSale").val();
         var status = $("#status").val();
+        var publisher = $("#publisher").val();
+        var yearOfPublication = $("#yearOfPublication").val();
+        var totalPage = $("#totalPage").val();
+        var size = $("#size").val();
+        var supplier = $("#supplier").val();
+        var typeCover = $("#typeCover").val();
         if (!name) {
             swal({
                 title: "Lỗi!",
@@ -279,6 +357,72 @@
             });
             return;
         }
+        if (!publisher) {
+            swal({
+                title: "Lỗi!",
+                text: "Nhà xuất bản",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
+        if (!yearOfPublication) {
+            swal({
+                title: "Lỗi!",
+                text: "Năm xuất bản",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
+        if (!totalPage) {
+            swal({
+                title: "Lỗi!",
+                text: "Số trang",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
+        if (!size) {
+            swal({
+                title: "Lỗi!",
+                text: "Kích thước",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
+        if (!supplier) {
+            swal({
+                title: "Lỗi!",
+                text: "Nhà cung cấp",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
+        if (!typeCover) {
+            swal({
+                title: "Lỗi!",
+                text: "Loại bìa",
+                icon: "warning",
+                buttons: true,
+                buttons: ["Ok"],
+                timer: 3000,
+            });
+            return;
+        }
         form_data.append("_token", "{{csrf_token()}}");
         form_data.append("id", id);
         form_data.append("name", name.trim());
@@ -292,7 +436,13 @@
         form_data.append("quantity", +quantity);
         form_data.append("price_sale", +price_sale);
         form_data.append("price", +price);
-        form_data.append("status", status);
+        form_data.append("status", +status);
+        form_data.append("publisher", publisher);
+        form_data.append("yearOfPublication", yearOfPublication);
+        form_data.append("totalPage", +totalPage);
+        form_data.append("size", size);
+        form_data.append("supplier", supplier);
+        form_data.append("typeCover", typeCover);
         $.ajax({
             type: "post",
             url: "/admin/update-book",

@@ -261,9 +261,40 @@
                                                             Thông tin sản phẩm
                                                         </h2>
                                                     </div>
-                                                    <div>
-                                                        {!! $book->description
-                                                        !!}
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Nhà xuất bản: </p>
+                                                        <p>{!! $book->publisher
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Năm xuất bản: </p>
+                                                        <p>{!! $book->yearOfPublication
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Số trang: </p>
+                                                        <p>{!! $book->totalPage
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Kích thước: </p>
+                                                        <p>{!! $book->size
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Nhà cung cấp: </p>
+                                                        <p>{!! $book->supplier
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Loại bìa: </p>
+                                                        <p>{!! $book->typeCover
+                                                            !!}</p>
+                                                    </div>
+                                                    <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                        <p style="font-weight: 800; padding-right: 20px;">Mô tả sản phẩm: </p>
+                                                        <p>{!! $book->description
+                                                            !!}</p>
                                                     </div>
                                                 </div>
                                                 <!-- /.box-collateral -->

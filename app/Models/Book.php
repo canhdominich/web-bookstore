@@ -7,6 +7,14 @@ class Book extends Model
 {
 	protected $table = 'books';
 	protected $fillable  = [
-		'name', 'code', 'description', 'category_id', 'slug', 'image', 'price',  'price_sale', 'quantity', 'bought', 'view_count', 'status', 'author'
+		'name', 'code', 'description', 'category_id', 
+		'slug', 'image', 'price',  'price_sale', 'quantity', 
+		'bought', 'view_count', 'status', 'author',
+		'publisher',
+		'yearOfPublication',
+		'totalPage',
+		'size',
+		'supplier',
+		'typeCover',
 	];
 }
